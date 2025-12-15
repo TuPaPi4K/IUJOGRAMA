@@ -1,0 +1,143 @@
+body {
+    background-image: url('img/fondo8.jpeg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.menu {
+    text-align: center;
+    margin-top: 50px;
+}
+h1 {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: 72px;
+    color: #ffd900; 
+    text-shadow: 4px 4px 0 #5c3d2e;
+    text-align: center;
+    margin-top: 40px;
+    animation: fadeSlideIn 1.2s ease;
+}
+
+.botones_menu1 {
+    font-family: 'Comic Sans MS', cursive;
+    font-size: 36px;
+    background-color: #d4a373;
+    color: #fff;
+    border: 4px solid #5c3d2e;
+    border-radius: 15px;
+    padding: 20px 50px;
+    margin: 20px;
+    box-shadow: 6px 6px 0 #5c3d2e;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-shadow: 2px 2px #5c3d2e;
+}
+
+.botones_menu1:hover {
+    transform: translateY(-4px);
+    box-shadow: 8px 8px 0 #3e2a1f;
+}
+.botones_menu2 {
+    font-family: 'Comic Sans MS', cursive;
+    font-size: 36px;
+    background-color: #d4a373;
+    color: #fff;
+    border: 4px solid #5c3d2e;
+    border-radius: 15px;
+    padding: 20px 50px;
+    margin: 20px;
+    box-shadow: 6px 6px 0 #5c3d2e;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-shadow: 2px 2px #5c3d2e;
+}
+
+.botones_menu2:hover {
+    transform: translateY(-4px);
+    box-shadow: 8px 8px 0 #3e2a1f;
+}
+
+.botones_menu1 {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.botones_menu2 {
+    position: relative;
+    overflow: hidden;
+}
+
+.botones_menu2::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: shine 2s infinite;
+}
+
+@keyframes shine {
+    0% {
+        left: -100%;
+    } 
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: translateY(-200px) scale(0.3);
+        opacity: 0;
+    }
+    60% {
+        transform: translateY(30px) scale(1.1);
+        opacity: 1;
+    }
+    80% {
+        transform: translateY(-10px) scale(0.95);
+    }
+    100% {
+        transform: translateY(0) scale(1);
+    }
+}
+
+.menu_dificultad {
+    text-align: center;
+    margin-top: 20px;
+    animation: fadeIn 0.5s ease;
+}
+
+.ocultar {
+    display: none;
+}
+
+@keyframes fadeSlideIn {
+    0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorías</title>
+    <link rel="stylesheet" href="categoria.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div class="bg"></div>
+    <div class="cartel">
+        <span class="texto-cartel">CATEGORÍAS</span>
+        <a href="instrucciones.html" id="btnAyuda" data-tooltip="¿Cómo jugar?" aria-label="Ayuda e instrucciones">
+             <i class="fas fa-question"></i>
+        </a>
+
+    </div>
+    <main class="contenedor">
+        <section class="tablero" aria-labelledby="categorias">
+            <button type="button" id="ci" class="btn-cat1"><i class="fas fa-image"></i> CRUCIGRAMA CON IMÁGENES</button>
+            <section id="dificultad_ci" class="menu_dificultad ocultar">
+                <button type="button" id="btnFacil1" class="botones_dificultad">FÁCIL</button>
+                <button type="button" id="btnIntermedio1" class="botones_dificultad" >MEDIO</button>
+                <button type="button" id="btnDificil1" class="botones_dificultad">DIFÍCIL</button>
+            </section>
+            <button type="button" id="cc" class="btn-cat2"><i class="fas fa-puzzle-piece"></i> CRUCIGRAMA CRÍPTICO</button>
+            <section id="dificultad_cc" class="menu_dificultad ocultar">
+                <button type="button" id="btnFacil2" class="botones_dificultad">FÁCIL</button>
+                <button type="button" id="btnIntermedio2" class="botones_dificultad">MEDIO</button>
+                <button type="button" id="btnDificil2" class="botones_dificultad">DIFÍCIL</button>
+            </section>
+            <button type="button" id="cm" class="btn-cat3"><i class="fas fa-calculator"></i> CRUCIGRAMA MATEMÁTICO</button>
+            <section id="dificultad_cm" class="menu_dificultad ocultar">
+                <button type="button" id="btnFacil3" class="botones_dificultad" data-tooltip="---≪ Matriz 10x10 ≫--- Las imágenes son sencillas y fáciles de comprender a primera vista.">FÁCIL</button>
+                <button type="button" id="btnIntermedio3" class="botones_dificultad" data-tooltip="---≪ Matriz 20x20 ≫--- Para jugadores intermedios, crucigramas con vocabulario variado y retos moderados.">MEDIO</button>
+                <button type="button" id="btnDificil3" class="botones_dificultad" data-tooltip="---≪ Matriz 40X40 ≫---Nivel avanzado, crucigramas complejos con términos especializados y mayor desafío.">DIFÍCIL</button>
+            </section>
+            <button type="button" id="ct" class="btn-cat4"><i class="fas fa-book-open"></i> CRUCIGRAMA TEMÁTICO</button>
+            <section id="dificultad_ct" class="menu_dificultad ocultar">
+                <button type="button" id="btnFacil4" class="botones_dificultad" data-tooltip="---≪ Matriz 10x10 ≫--- Las imágenes son sencillas y fáciles de comprender a primera vista.">FÁCIL</button>
+                <button type="button" id="btnIntermedio4" class="botones_dificultad" data-tooltip="---≪ Matriz 20x20 ≫--- Para jugadores intermedios, crucigramas con vocabulario variado y retos moderados.">MEDIO</button>
+                <button type="button" id="btnDificil4" class="botones_dificultad" data-tooltip="---≪ Matriz 40X40 ≫---Nivel avanzado, crucigramas complejos con términos especializados y mayor desafío.">DIFÍCIL</button>
+            </section>
+        </section>
+        <nav class="acciones">
+            <span class="btn-volver" id="btnVolver"></span>
+        </nav>
+
+        <section id="pantallaCarga" class="pantalla-carga ocultar">
+            <div class="caja-carga">
+                <div class="contenido-cartel">
+                    <p class="mensaje-carga">
+                    <strong>¿Cómo jugar?</strong><br>Solo observa, haz click en la casilla y escribe la palabra. Las imágenes son claras y conocidas. ¡Buena suerte!
+                    </p>
+                    <div class="barra-externa">
+                        <div class="barra-interna" id="barraProgreso"></div>
+                    </div>
+                    <p id="porcentaje">21%</p>
+                </div>
+            </div>
+        </section>
+        <section id="pantallaCarga1" class="pantalla-carga ocultar">
+            <div class="caja-carga">
+                <div class="contenido-cartel">
+                    <p class="mensaje-carga">
+                    <strong>¿Cómo jugar?</strong><br>Las imágenes no siempre son <br> lo que parecen, requieren de más análisis para llegar a la palabra correcta. <br>¡Es hora de poner tu mente a trabajar!
+                    </p>
+                    <div class="barra-externa">
+                        <div class="barra-interna" id="barraProgreso1"></div>
+                    </div>
+                    <p id="porcentaje1">21%</p>
+                </div>
+            </div>
+        </section>
+        <section id="pantallaCarga3" class="pantalla-carga ocultar">
+            <div class="caja-carga">
+                <div class="contenido-cartel">
+                    <p class="mensaje-carga">
+                    <strong>¿Cómo jugar?</strong><br>Las imágenes no son lo que parecen <br> debes analizar y observar cuidadosamente para llegar a la respuesta correcta <br>¡Ten paciencia!
+                    </p>
+                    <div class="barra-externa">
+                        <div class="barra-interna" id="barraProgreso3"></div>
+                    </div>
+                    <p id="porcentaje3">21%</p>
+                </div>
+            </div>
+        </section>
+                <section id="pantallaCarga4" class="pantalla-carga ocultar">
+            <div class="caja-carga">
+                <div class="contenido-cartel">
+                    <p class="mensaje-carga">
+                    <strong>¿Cómo jugar?</strong><br>Lee cuidadosamente las definiciones, las palabras aquí son reconocidas y nada rebuscadas ¡Diviértete!
+                    </p>
+                    <div class="barra-externa">
+                        <div class="barra-interna" id="barraProgreso4"></div>
+                    </div>
+                    <p id="porcentaje4">21%</p>
+                </div>
+            </div>
+        </section>
+        <section id="pantallaCarga5" class="pantalla-carga ocultar">
+            <div class="caja-carga">
+                <div class="contenido-cartel">
+                    <p class="mensaje-carga">
+                    <strong>¿Cómo jugar?</strong><br>Analiza cada pista: el vocabulario es cotidiano pero exige precisión. Busca la opción más clara sin complicarte.
+                    </p>
+                    <div class="barra-externa">
+                        <div class="barra-interna" id="barraProgreso5"></div>
+                    </div>
+                    <p id="porcentaje5">21%</p>
+                </div>
+            </div>
+        </section>
+        <section id="pantallaCarga6" class="pantalla-carga ocultar">
+            <div class="caja-carga">
+                <div class="contenido-cartel">
+                    <p class="mensaje-carga">
+                    <strong>¿Cómo jugar?</strong><br>Olvida lo obvio. Cada pista tiene dos caras: La definición y el rompecabezas de palabras. <br>¡Pon tu mente a trabajar en este nivel!
+                    </p>
+                    <div class="barra-externa">
+                        <div class="barra-interna" id="barraProgreso6"></div>
+                    </div>
+                    <p id="porcentaje6">21%</p>
+                </div>
+            </div>
+        </section>
+        <section id="pantallaCarga7" class="pantalla-carga ocultar">
+            <div class="caja-carga">
+                <div class="contenido-cartel">
+                    <p class="mensaje-carga">
+                    <strong>¿Cómo jugar?</strong><br>Tendrás que resolver un crucigrama en base a conocimientos de sustracción y adición <br>¡Pon tu mente a trabajar!
+                    </p>
+                    <div class="barra-externa">
+                        <div class="barra-interna" id="barraProgreso7"></div>
+                    </div>
+                    <p id="porcentaje7">21%</p>
+                </div>
+            </div>
+        </section>
+        <section id="pantallaCarga8" class="pantalla-carga ocultar">
+            <div class="caja-carga">
+                <div class="contenido-cartel">
+                    <p class="mensaje-carga">
+                    <strong>¿Cómo jugar?</strong><br>Requiere conocimientos en adición y sustración con un poco más de análisis <br> ¡Buena suerte!
+                    </p>
+                    <div class="barra-externa">
+                        <div class="barra-interna" id="barraProgreso8"></div>
+                    </div>
+                    <p id="porcentaje8">21%</p>
+                </div>
+            </div>
+        </section>
+        <section id="pantallaCarga9" class="pantalla-carga ocultar">
+            <div class="caja-carga">
+                <div class="contenido-cartel">
+                    <p class="mensaje-carga">
+                    <strong>¿Cómo jugar?</strong><br>Último nivel para probar tus conocimientos en operaciones básicas matemáticas, este nivel requiere más análisis <br> ¡Buena suerte!
+                    </p>
+                    <div class="barra-externa">
+                        <div class="barra-interna" id="barraProgreso9"></div>
+                    </div>
+                    <p id="porcentaje9">21%</p>
+                </div>
+            </div>
+        </section>
+        <section id="pantallaCarga10" class="pantalla-carga ocultar">
+            <div class="caja-carga">
+                <div class="contenido-cartel">
+                    <p class="mensaje-carga">
+                    <strong>¿Cómo jugar?</strong><br>Un crucigrama temático reúne palabras de un mismo tema, en este nivel: Útiles Escolares. Las pistas son claras ¡Diviértete!
+                    </p>
+                    <div class="barra-externa">
+                        <div class="barra-interna" id="barraProgreso10"></div>
+                    </div>
+                    <p id="porcentaje10">21%</p>
+                </div>
+            </div>
+        </section>
+        <section id="pantallaCarga11" class="pantalla-carga ocultar">
+            <div class="caja-carga">
+                <div class="contenido-cartel">
+                    <p class="mensaje-carga">
+                    <strong>¿Cómo jugar?</strong><br>Un crucigrama temático reúne palabras de un mismo tema, en este nivel: Animales. Las pistas a veces pueden ser confusas ¡Diviértete!
+                    </p>
+                    <div class="barra-externa">
+                        <div class="barra-interna" id="barraProgreso11"></div>
+                    </div>
+                    <p id="porcentaje11">21%</p>
+                </div>
+            </div>
+        </section>
+        <section id="pantallaCarga12" class="pantalla-carga ocultar">
+            <div class="caja-carga">
+                <div class="contenido-cartel">
+                    <p class="mensaje-carga">
+                    <strong>¿Cómo jugar?</strong><br>Un crucigrama temático reúne palabras de un mismo tema, en este nivel: Informática. Piensa y analiza cada uno de los conceptos dados para dar con la palabra correcta.
+                    </p>
+                    <div class="barra-externa">
+                        <div class="barra-interna" id="barraProgreso12"></div>
+                    </div>
+                    <p id="porcentaje12">21%</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        function cerrarTodosLosMenus() {
+            const menus = document.querySelectorAll('.menu_dificultad');
+            menus.forEach(menu => menu.classList.add('ocultar'));
+        }
+        //IR A CRUCIGRAMA FACIL CON IMAGENES PANTALLA DE CARGA
+        function iniciarCargaYRedireccion(urlDestino) {
+            const pantalla = document.getElementById('pantallaCarga');
+            const barra = document.getElementById('barraProgreso');
+            const texto = document.getElementById('porcentaje');
+            pantalla.classList.remove('ocultar');
+            let progreso = 0;
+            const intervalo = setInterval(() => {
+                progreso++;
+                barra.style.width = progreso + '%';
+                texto.textContent = progreso + '%';
+                if (progreso >= 100) {
+                    clearInterval(intervalo);
+                    window.location.href = urlDestino;
+                }
+            }, 80); 
+        }
+        //IR A CRUCIGRAMA MEDIO CON IMAGENES PANTALLA DE CARGA
+        function iniciarCargaYRedireccion1(urlDestino) {
+            const pantalla = document.getElementById('pantallaCarga1');
+            const barra = document.getElementById('barraProgreso1');
+            const texto = document.getElementById('porcentaje1');
+            pantalla.classList.remove('ocultar');
+            let progreso = 0;
+            const intervalo = setInterval(() => {
+                progreso++;
+                barra.style.width = progreso + '%';
+                texto.textContent = progreso + '%';
+                if (progreso >= 100) {
+                    clearInterval(intervalo);
+                    window.location.href = urlDestino;
+                }
+            }, 80); 
+        }
+        //IR A CRUCIGRAMA DIFÍCIL CON IMAGENES PANTALLA DE CARGA
+        function iniciarCargaYRedireccion3(urlDestino) {
+            const pantalla = document.getElementById('pantallaCarga3');
+            const barra = document.getElementById('barraProgreso3');
+            const texto = document.getElementById('porcentaje3');
+            pantalla.classList.remove('ocultar');
+            let progreso = 0;
+            const intervalo = setInterval(() => {
+                progreso++;
+                barra.style.width = progreso + '%';
+                texto.textContent = progreso + '%';
+                if (progreso >= 100) {
+                    clearInterval(intervalo);
+                    window.location.href = urlDestino;
+                }
+            }, 80); 
+        }
+        //IR A CRUCIGRAMA FÁCIL CRIPTICO PANTALLA DE CARGA
+        function iniciarCargaYRedireccion4(urlDestino) {
+            const pantalla = document.getElementById('pantallaCarga4');
+            const barra = document.getElementById('barraProgreso4');
+            const texto = document.getElementById('porcentaje4');
+            pantalla.classList.remove('ocultar');
+            let progreso = 0;
+            const intervalo = setInterval(() => {
+                progreso++;
+                barra.style.width = progreso + '%';
+                texto.textContent = progreso + '%';
+                if (progreso >= 100) {
+                    clearInterval(intervalo);
+                    window.location.href = urlDestino;
+                }
+            }, 80); 
+        }
+        //IR A CRUCIGRAMA MEDIO CRIPTICO PANTALLA DE CARGA
+        function iniciarCargaYRedireccion5(urlDestino) {
+            const pantalla = document.getElementById('pantallaCarga5');
+            const barra = document.getElementById('barraProgreso5');
+            const texto = document.getElementById('porcentaje5');
+            pantalla.classList.remove('ocultar');
+            let progreso = 0;
+            const intervalo = setInterval(() => {
+                progreso++;
+                barra.style.width = progreso + '%';
+                texto.textContent = progreso + '%';
+                if (progreso >= 100) {
+                    clearInterval(intervalo);
+                    window.location.href = urlDestino;
+                }
+            }, 80); 
+        }
+        //IR A CRUCIGRAMA DIFICIL CRIPTICO PANTALLA DE CARGA
+        function iniciarCargaYRedireccion6(urlDestino) {
+            const pantalla = document.getElementById('pantallaCarga6');
+            const barra = document.getElementById('barraProgreso6');
+            const texto = document.getElementById('porcentaje6');
+            pantalla.classList.remove('ocultar');
+            let progreso = 0;
+            const intervalo = setInterval(() => {
+                progreso++;
+                barra.style.width = progreso + '%';
+                texto.textContent = progreso + '%';
+                if (progreso >= 100) {
+                    clearInterval(intervalo);
+                    window.location.href = urlDestino;
+                }
+            }, 80); 
+        }
+        //IR A CRUCIGRAMA FÁCIL MATEMÁTICP PANTALLA DE CARGA
+        function iniciarCargaYRedireccion7(urlDestino) {
+            const pantalla = document.getElementById('pantallaCarga7');
+            const barra = document.getElementById('barraProgreso7');
+            const texto = document.getElementById('porcentaje7');
+            pantalla.classList.remove('ocultar');
+            let progreso = 0;
+            const intervalo = setInterval(() => {
+                progreso++;
+                barra.style.width = progreso + '%';
+                texto.textContent = progreso + '%';
+                if (progreso >= 100) {
+                    clearInterval(intervalo);
+                    window.location.href = urlDestino;
+                }
+            }, 80); 
+        }
+        //IR A CRUCIGRAMA MEDIO MATEMÁTICO PANTALLA DE CARGA
+        function iniciarCargaYRedireccion8(urlDestino) {
+            const pantalla = document.getElementById('pantallaCarga8');
+            const barra = document.getElementById('barraProgreso8');
+            const texto = document.getElementById('porcentaje8');
+            pantalla.classList.remove('ocultar');
+            let progreso = 0;
+            const intervalo = setInterval(() => {
+                progreso++;
+                barra.style.width = progreso + '%';
+                texto.textContent = progreso + '%';
+                if (progreso >= 100) {
+                    clearInterval(intervalo);
+                    window.location.href = urlDestino;
+                }
+            }, 80); 
+        }
+        //IR A CRUCIGRAMA DIFICIL MATEMÁTICO PANTALLA DE CARGA
+        function iniciarCargaYRedireccion9(urlDestino) {
+            const pantalla = document.getElementById('pantallaCarga9');
+            const barra = document.getElementById('barraProgreso9');
+            const texto = document.getElementById('porcentaje9');
+            pantalla.classList.remove('ocultar');
+            let progreso = 0;
+            const intervalo = setInterval(() => {
+                progreso++;
+                barra.style.width = progreso + '%';
+                texto.textContent = progreso + '%';
+                if (progreso >= 100) {
+                    clearInterval(intervalo);
+                    window.location.href = urlDestino;
+                }
+            }, 80); 
+        }
+        //IR A CRUCIGRAMA FÁCIL TEMATICO PANTALLA DE CARGA
+        function iniciarCargaYRedireccion10(urlDestino) {
+            const pantalla = document.getElementById('pantallaCarga10');
+            const barra = document.getElementById('barraProgreso10');
+            const texto = document.getElementById('porcentaje10');
+            pantalla.classList.remove('ocultar');
+            let progreso = 0;
+            const intervalo = setInterval(() => {
+                progreso++;
+                barra.style.width = progreso + '%';
+                texto.textContent = progreso + '%';
+                if (progreso >= 100) {
+                    clearInterval(intervalo);
+                    window.location.href = urlDestino;
+                }
+            }, 80); 
+        }
+        //IR A CRUCIGRAMA MEDIO TEMATICO PANTALLA DE CARGA
+        function iniciarCargaYRedireccion11(urlDestino) {
+            const pantalla = document.getElementById('pantallaCarga11');
+            const barra = document.getElementById('barraProgreso11');
+            const texto = document.getElementById('porcentaje11');
+            pantalla.classList.remove('ocultar');
+            let progreso = 0;
+            const intervalo = setInterval(() => {
+                progreso++;
+                barra.style.width = progreso + '%';
+                texto.textContent = progreso + '%';
+                if (progreso >= 100) {
+                    clearInterval(intervalo);
+                    window.location.href = urlDestino;
+                }
+            }, 80); 
+        }
+        //IR A CRUCIGRAMA DIFICIL TEMATICO PANTALLA DE CARGA
+        function iniciarCargaYRedireccion12(urlDestino) {
+            const pantalla = document.getElementById('pantallaCarga12');
+            const barra = document.getElementById('barraProgreso12');
+            const texto = document.getElementById('porcentaje12');
+            pantalla.classList.remove('ocultar');
+            let progreso = 0;
+            const intervalo = setInterval(() => {
+                progreso++;
+                barra.style.width = progreso + '%';
+                texto.textContent = progreso + '%';
+                if (progreso >= 100) {
+                    clearInterval(intervalo);
+                    window.location.href = urlDestino;
+                }
+            }, 80); 
+        }
+        //categoria imagenes
+        document.getElementById('ci').addEventListener('click', function () {
+            const actual = document.getElementById('dificultad_ci');
+            const estabaOculto = actual.classList.contains('ocultar');
+            document.querySelectorAll('.menu_dificultad').forEach(menu => menu.classList.add('ocultar'));
+            actual.classList.toggle('ocultar', !estabaOculto);
+        });
+            document.getElementById('btnFacil1').addEventListener('click', function() {
+            iniciarCargaYRedireccion('ciFacil.html');
+        });
+        document.getElementById('btnIntermedio1').addEventListener('click', function() {
+            iniciarCargaYRedireccion1('ciMedio.html'); 
+        });
+        document.getElementById('btnDificil1').addEventListener('click', function() {
+            iniciarCargaYRedireccion3('ciDificil.html'); 
+        });
+        //criptico
+        document.getElementById('cc').addEventListener('click', function () {
+            const actual = document.getElementById('dificultad_cc');
+            const estabaOculto = actual.classList.contains('ocultar');
+            document.querySelectorAll('.menu_dificultad').forEach(menu => menu.classList.add('ocultar'));
+            actual.classList.toggle('ocultar', !estabaOculto);
+        });
+        document.getElementById('btnFacil2').addEventListener('click', function() {
+            iniciarCargaYRedireccion4('ccFacil.html');  
+        });
+        document.getElementById('btnIntermedio2').addEventListener('click', function() {
+            iniciarCargaYRedireccion5('ccMedio.html'); 
+        });
+        document.getElementById('btnDificil2').addEventListener('click', function() {
+            iniciarCargaYRedireccion6('ccDificil.html'); 
+        });
+        // matematico
+        document.getElementById('cm').addEventListener('click', function () {
+            const actual = document.getElementById('dificultad_cm');
+            const estabaOculto = actual.classList.contains('ocultar');
+            document.querySelectorAll('.menu_dificultad').forEach(menu => menu.classList.add('ocultar'));
+            actual.classList.toggle('ocultar', !estabaOculto);
+        });
+        document.getElementById('btnFacil3').addEventListener('click', function() {
+            iniciarCargaYRedireccion7('cmFacil.html'); 
+        });
+        document.getElementById('btnIntermedio3').addEventListener('click', function() {
+            iniciarCargaYRedireccion8('cmMedio.html'); 
+        });
+        document.getElementById('btnDificil3').addEventListener('click', function() {
+            iniciarCargaYRedireccion9('cmDificil.html');  
+        });
+        //tematico
+        document.getElementById('ct').addEventListener('click', function () {
+            const actual = document.getElementById('dificultad_ct');
+            const estabaOculto = actual.classList.contains('ocultar');
+            document.querySelectorAll('.menu_dificultad').forEach(menu => menu.classList.add('ocultar'));
+            actual.classList.toggle('ocultar', !estabaOculto);
+        });
+        document.getElementById('btnFacil4').addEventListener('click', function() {
+            iniciarCargaYRedireccion10('ctFacil.html'); 
+        });
+        document.getElementById('btnIntermedio4').addEventListener('click', function() {
+            iniciarCargaYRedireccion11('ctMedio.html'); 
+        });
+        document.getElementById('btnDificil4').addEventListener('click', function() {
+            iniciarCargaYRedireccion12('ctDificil.html');  
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('btnVolver').addEventListener('click', function() {
+                window.location.href = 'index.html';
+            })
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crucigrama Fácil con Imágenes</title>
+    <link rel="stylesheet" href="crucigrama1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <h2 class="titulo">Crucigrama con Imágenes: Fácil</h2>
+    <div class="contenido-juego">
+        <section class="pistas">
+            <article class="pista">
+                <strong>Horizontal:</strong>
+                <div class="pista-item">
+                    <span class="pista-num">1:</span>
+                    <img src="img/superheroe.png" alt="superhéroe">
+                </div>
+                <div class="pista-item">
+                    <span class="pista-num">6:</span>
+                    <img src="img/carpa.png" alt="carpa">
+                </div>
+                <div class="pista-item">
+                    <span class="pista-num">7:</span>
+                    <img src="img/mono.png" alt="mono">
+                </div>
+                <div class="pista-item">
+                    <span class="pista-num">8:</span>
+                    <img src="img/imán.png" alt="imán">
+                </div>
+                    <div class="pista-item">
+                    <span class="pista-num">9:</span>
+                    <img src="img/cien.png" alt="cien">
+                </div>
+                <div class="pista-item">
+                    <span class="pista-num">10:</span>
+                    <img src="img/traje.png" alt="traje">
+                </div>
+            </article>
+            <article class="pista">
+                <strong>Vertical:</strong>
+                <div class="pista-item">
+                    <span class="pista-num">2:</span>
+                    <img src="img/unicornio.png" alt="unicornio">
+                </div>
+                <div class="pista-item">
+                    <span class="pista-num">3:</span>
+                    <img src="img/helado.png" alt="helado">
+                </div>
+                <div class="pista-item">
+                    <span class="pista-num">4:</span>
+                    <img src="img/regalo.png" alt="regalo">
+                </div>
+                <div class="pista-item">
+                    <span class="pista-num">5:</span>
+                    <img src="img/estudiante.png" alt="estudiante">
+                </div>
+            </article>
+        </section>
+        <section class="tablero-wrap">
+            <table class="tablero" aria-label="Crucigrama 10 por 10">
+                <tbody>
+                    <!-- Fila 0 -->
+                    <tr>
+                        <td class="casilla1"><input type="text" class="casilla activa" maxlength="1" id="f0c0"></td>
+                        <td class="casilla2"><input type="text" class="casilla activa" maxlength="1" id="f0c1"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f0c2"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f0c3"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f0c4"></td>
+                        <td class="casilla3"><input type="text" class="casilla activa" maxlength="1" id="f0c5"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f0c6"></td>
+                        <td class="casilla4"><input type="text" class="casilla activa" maxlength="1" id="f0c7"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f0c8"></td>
+                        <td class="casilla5"><input type="text" class="casilla activa" maxlength="1" id="f0c9"></td>
+                    </tr>
+                    <!-- Fila 1 -->
+                    <tr>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f1c0"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f1c1"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f1c2"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f1c3"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f1c4"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f1c5"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f1c6"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f1c7"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f1c8"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f1c9"></td>
+                    </tr>
+                    <!-- Fila 2 -->
+                    <tr>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f2c0"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f2c1"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f2c2"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f2c3"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f2c4"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f2c5"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f2c6"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f2c7"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f2c8"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f2c9"></td>
+                    </tr>
+                    <!-- Fila 3 -->
+                    <tr>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f3c0"></td>
+                        <td class="casilla6"><input type="text" class="casilla activa" maxlength="1" id="f3c1"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f3c2"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f3c3"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f3c4"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f3c5"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f3c6"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f3c7"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f3c8"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f3c9"></td>
+                    </tr>
+                    <!-- Fila 4 -->
+                    <tr>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f4c0"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f4c1"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f4c2"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f4c3"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f4c4"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f4c5"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f4c6"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f4c7"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f4c8"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f4c9"></td>
+                    </tr>
+                    <!-- Fila 5 -->
+                    <tr>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f5c0"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f5c1"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f5c2"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f5c3"></td>
+                        <td class="casilla7"><input type="text" class="casilla activa" maxlength="1" id="f5c4"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f5c5"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f5c6"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f5c7"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f5c8"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f5c9"></td>
+                    </tr>
+                    <!-- Fila 6 -->
+                    <tr>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f6c0"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f6c1"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f6c2"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f6c3"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f6c4"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f6c5"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f6c6"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f6c7"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f6c8"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f6c9"></td>
+                    </tr>
+                    <!-- Fila 7 -->
+                    <tr>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f7c0"></td>
+                        <td class="casilla8"><input type="text" class="casilla activa" maxlength="1" id="f7c1"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f7c2"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f7c3"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f7c4"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f7c5"></td>
+                        <td class="casilla9"><input type="text" class="casilla activa" maxlength="1" id="f7c6"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f7c7"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f7c8"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f7c9"></td>
+                    </tr>
+                    <!-- Fila 8 -->
+                    <tr>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f8c0"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f8c1"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f8c2"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f8c3"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f8c4"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f8c5"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f8c6"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f8c7"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f8c8"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f8c9"></td>
+                    </tr>
+                    <!-- Fila 9 -->
+                    <tr>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f9c0"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f9c1"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f9c2"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f9c3"></td>
+                        <td><input type="text" class="casilla bloqueada" maxlength="1" id="f9c4"></td>
+                        <td class="casilla10"><input type="text" class="casilla activa" maxlength="1" id="f9c5"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f9c6"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f9c7"></td>
+                        <td><input type="text" class="casilla activa" maxlength="1" id="f9c8"></td>
+                    <td><input type="text" class="casilla activa" maxlength="1" id="f9c9"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="acciones">
+                <button type="button" id="btnVerificar" class="btn" disabled>Verificar</button>
+                <button type="button" id="btnPista" class="btn btn-pista">
+                    <i class="fas fa-lightbulb"></i> Pista <span id="contadorPista">3</span>
+                </button>
+                <div id="mensaje" class="mensaje"></div>
+            </div>
+            <span class="btn-volver" id="btnVolver"></span>
+
+        </section>
+        <!-- Modal -->
+        <div id="modalResultado" class="modal ocultar">
+            <div class="modal-contenido">
+                <span id="cerrarModal" class="cerrar">&times;</span>
+                <h2 id="tituloModal"><i class="fas fa-exclamation-circle"></i> Resultado</h2>
+                <p id="mensajeModal">Mensaje aquí</p>
+                <div id="accionesModal"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        function revisarCampos() {
+            const activos = document.querySelectorAll('.casilla.activa');
+            
+            const todosLlenos = Array.from(activos).every(input => input.value.trim() !== "");
+            document.getElementById('btnVerificar').disabled = !todosLlenos;
+        }
+        document.querySelectorAll('.casilla.activa').forEach(input => {
+            input.addEventListener('input', () => {
+                input.value = input.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ]/g, '').toUpperCase();
+                revisarCampos(); 
+            });
+        });
+        document.querySelectorAll('.casilla.activa').forEach(input => {
+            input.addEventListener('keydown', (e) => {
+                const id = input.id; // ej: f3c5
+                const match = id.match(/f(\d+)c(\d+)/);
+                if (!match) return;
+
+                let fila = parseInt(match[1]);
+                let col = parseInt(match[2]);
+
+                function mover(fila, col, direccion) {
+                    let nextId = `f${fila}c${col}`;
+                    let nextInput = document.getElementById(nextId);
+
+        
+                    while (nextInput && !nextInput.classList.contains("activa")) {
+                        if (direccion === "up") fila--;
+                        if (direccion === "down") fila++;
+                        if (direccion === "left") col--;
+                        if (direccion === "right") col++;
+                        nextId = `f${fila}c${col}`;
+                        nextInput = document.getElementById(nextId);
+                    }
+
+                    if (nextInput && nextInput.classList.contains("activa")) {
+                        e.preventDefault();
+                        nextInput.focus();
+                    }
+                }
+                switch (e.key) {
+                    case "ArrowUp":
+                    mover(fila - 1, col, "up");
+                    break;
+                    case "ArrowDown":
+                    mover(fila + 1, col, "down");
+                    break;
+                    case "ArrowLeft":
+                    mover(fila, col - 1, "left");
+                    break;
+                    case "ArrowRight":
+                    mover(fila, col + 1, "right");
+                    break;
+                }
+            });
+        });
+
+
+        function mostrarModal(correcto) {
+            const modal = document.getElementById('modalResultado');
+            const titulo = document.getElementById('tituloModal');
+            const mensaje = document.getElementById('mensajeModal');
+            const acciones = document.getElementById('accionesModal');
+            modal.classList.remove('ocultar');
+            if (correcto) {
+                titulo.innerHTML = '<i class="fas fa-star"></i> ¡FELICIDADES!';
+                mensaje.textContent = 'Lo has logrado';
+                acciones.innerHTML = `
+                    <button class="btn-modal" onclick="location.reload()">
+                        <i class="fas fa-redo"></i> Volver a resolver
+                    </button>
+                    <button class="btn-modal" onclick="window.location.href='categoria.html'">
+                        <i class="fas fa-home"></i> Menú principal
+                    </button>
+                    <button class="btn-modal" onclick="window.location.href='ciMedio.html'">
+                        <i class="fas fa-forward"></i> Siguiente juego
+                    </button>
+                `;
+            } else {
+                titulo.innerHTML = '<i class="fas fa-exclamation-circle"></i> Incorrecto';
+                mensaje.textContent = 'Algunas palabras están mal. Intenta de nuevo.';
+                acciones.innerHTML = `
+                    <button class="btn-modal" id="btnSeguir">
+                        <i class="fas fa-check"></i> OK
+                    </button>
+                `;
+                document.getElementById('btnSeguir').addEventListener('click', () => {
+                    modal.classList.add('ocultar');
+                });
+            }
+        }
+
+
+        document.getElementById('cerrarModal').addEventListener('click', () => {
+            document.getElementById('modalResultado').classList.add('ocultar');
+        });
+
+        // Verificación de palabras
+        function verificarPalabra(ids, palabraEsperada) {
+            ids.forEach(id => document.getElementById(id).classList.remove('error'));
+            const valores = ids.map(id => document.getElementById(id).value).join('').toLowerCase();
+            const objetivo = palabraEsperada.toLowerCase();
+            if (valores === objetivo) {
+                return true;
+            } else {
+                ids.forEach((id, i) => {
+                    const charEsperado = objetivo[i] || '';
+                    const charEntrada = (document.getElementById(id).value || '').toLowerCase();
+                    if (charEntrada !== charEsperado) {
+                        document.getElementById(id).classList.add('error');
+                    }
+                });
+                return false;
+            }
+        }
+
+        document.getElementById('btnVerificar').addEventListener('click', () => {
+            const palabraA = verificarPalabra(["f0c0","f0c1","f0c2","f0c3","f0c4","f0c5","f0c6","f0c7","f0c8","f0c9"], "superhéroe");
+            const palabraB = verificarPalabra(["f0c1","f1c1","f2c1","f3c1","f4c1","f5c1","f6c1","f7c1","f8c1","f9c1"], "unicornio");
+            const palabraC = verificarPalabra(["f0c5","f1c5","f2c5","f3c5","f4c5","f5c5"], "helado");
+            const palabraD = verificarPalabra(["f0c9","f1c9","f2c9","f3c9","f4c9","f5c9","f6c9","f7c9","f8c9","f9c9"], "estudiante");
+            const palabraE = verificarPalabra(["f0c7","f1c7","f2c7","f3c7","f4c7","f5c7"], "regalo");
+            const palabraF = verificarPalabra(["f3c1","f3c2","f3c3","f3c4","f3c5"], "carpa");
+            const palabraG = verificarPalabra(["f5c4","f5c5","f5c6","f5c7"], "mono");
+            const palabraH = verificarPalabra(["f7c6","f7c7","f7c8","f7c9"], "cien");
+            const palabraI = verificarPalabra(["f7c1","f7c2","f7c3","f7c4"], "imán");
+            const palabraJ = verificarPalabra(["f9c5","f9c6","f9c7","f9c8","f9c9"], "traje");
+
+            if (palabraA && palabraB && palabraC && palabraD && palabraE && palabraF && palabraG && palabraH && palabraI && palabraJ) {
+                mostrarModal(true);
+            } else {
+                mostrarModal(false);
+            }
+        });
+
+        // Diccionario de respuestas correctas (cada casilla con su letra)
+        const respuestas = {
+            "f0c0":"s","f0c1":"u","f0c2":"p","f0c3":"e","f0c4":"r","f0c5":"h","f0c6":"é","f0c7":"r","f0c8":"o","f0c9":"e",
+            "f1c1":"n","f2c1":"i","f3c1":"c","f4c1":"o","f5c1":"r","f6c1":"n","f7c1":"i","f8c1":"o",
+            "f0c5":"h","f1c5":"e","f2c5":"l","f3c5":"a","f4c5":"d","f5c5":"o",
+            "f0c9":"e","f1c9":"s","f2c9":"t","f3c9":"u","f4c9":"d","f5c9":"i","f6c9":"a","f7c9":"n","f8c9":"t","f9c9":"e",
+            "f0c7":"r","f1c7":"e","f2c7":"g","f3c7":"a","f4c7":"l","f5c7":"o",
+            "f3c2":"a","f3c3":"r","f3c4":"p","f3c5":"a",
+            "f5c4":"m","f5c5":"o","f5c6":"n","f5c7":"o",
+            "f7c6":"c","f7c7":"i","f7c8":"e","f7c9":"n",
+            "f7c2":"m","f7c3":"á","f7c4":"n",
+            "f9c5":"t","f9c6":"r","f9c7":"a","f9c8":"j","f9c9":"e"
+        };
+
+        // Botón de pista con 3 usos
+        let pistasDisponibles = 3;
+        document.getElementById('btnPista').addEventListener('click', () => {
+            if (pistasDisponibles > 0) {
+                const pendientes = Object.entries(respuestas).filter(([id, valor]) => {
+                    const input = document.getElementById(id);
+                    return input && input.value.toLowerCase() !== valor;
+                });
+                if (pendientes.length > 0) {
+                    const [id, valor] = pendientes[Math.floor(Math.random() * pendientes.length)];
+                    const input = document.getElementById(id);
+                    input.value = valor.toUpperCase();
+                    input.classList.add('pista-bloqueada');
+                    input.setAttribute('readonly', true);
+
+                    revisarCampos();
+                }
+                pistasDisponibles--;
+                document.getElementById('contadorPista').textContent = pistasDisponibles;
+                if (pistasDisponibles === 0) {
+                    document.getElementById('btnPista').disabled = true;
+                }
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('btnVolver').addEventListener('click', function() {
+                window.location.href = 'categoria.html';
+            })
+        });
+    </script>
+
+</body>
+</html>

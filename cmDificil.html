@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crucigrama Matemático Difícil</title>
+    <link rel="stylesheet" href="crucigrama9.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <h2 class="titulo">Crucigrama Matemático: Difícil</h2>
+    <div class="contenido-juego">
+        <section class="tablero-wrap">
+            <table class="tablero" aria-label="Crucigrama 10 por 10">
+                <tbody>
+                    <!-- Fila 0 -->
+                    <tr>
+                        <td><input type="text" class="casilla activa" maxlength="3" id="f0c0"></td>
+                        <td class="casilla2"><input type="text" class="casilla bloqueada" maxlength="3" id="f0c1"></td>
+                        <td class="casilla1"><input type="text" class="casilla bloqueada" maxlength="3" id="f0c2"></td>
+                        <td class="casilla3"><input type="text" class="casilla bloqueada" maxlength="3" id="f0c3"></td>
+                        <td><input type="text" class="casilla activa" maxlength="3" id="f0c4"></td>
+                    </tr>
+                    <!-- Fila 1 -->
+                    <tr>
+                        <td><input type="text" class="casilla activa" maxlength="3" id="f1c0"></td>
+                        <td><input type="text" class="casilla bloqueada_negra" maxlength="3" id="f1c1"></td>
+                        <td class="casilla4"><input type="text" class="casilla bloqueada" maxlength="3" id="f1c2"></td>
+                        <td><input type="text" class="casilla bloqueada_negra" maxlength="3" id="f1c3"></td>
+                        <td class="casilla4"><input type="text" class="casilla bloqueada" maxlength="3" id="f1c4"></td>
+                    </tr>
+                    <!-- Fila 2 -->
+                    <tr>
+                        <td class="casilla6"><input type="text" class="casilla bloqueada" maxlength="3" id="f2c0"></td>
+                        <td><input type="text" class="casilla activa" maxlength="3" id="f2c1"></td>
+                        <td><input type="text" class="casilla activa" maxlength="3" id="f2c2"></td>
+                        <td class="casilla3"><input type="text" class="casilla bloqueada" maxlength="3" id="f2c3"></td>
+                        <td class="casilla7"><input type="text" class="casilla bloqueada" maxlength="3" id="f2c4"></td>
+                    </tr>
+                    <!-- Fila 3 -->
+                    <tr>
+                        <td class="casilla3"><input type="text" class="casilla bloqueada" maxlength="3" id="f3c0"></td>
+                        <td><input type="text" class="casilla bloqueada_negra" maxlength="3" id="f3c1"></td>
+                        <td class="casilla3"><input type="text" class="casilla bloqueada" maxlength="1" id="f3c2"></td>
+                        <td><input type="text" class="casilla bloqueada_negra" maxlength="3" id="f3c3"></td>
+                        <td class="casilla3"><input type="text" class="casilla bloqueada" maxlength="3" id="f3c4"></td>
+                    </tr>
+                    <!-- Fila 4 -->
+                    <tr>
+                        <td><input type="text" class="casilla activa" maxlength="3" id="f4c0"></td>
+                        <td class="casilla2"><input type="text" class="casilla bloqueada" maxlength="3" id="f4c1"></td>
+                        <td><input type="text" class="casilla activa" maxlength="3" id="f4c2"></td>
+                        <td class="casilla3"><input type="text" class="casilla bloqueada" maxlength="3" id="f4c3"></td>
+                        <td class="casilla8"><input type="text" class="casilla bloqueada" maxlength="3" id="f4c4"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="acciones">
+                <button type="button" id="btnVerificar" class="btn" disabled>Verificar</button>
+                <button type="button" id="btnPista" class="btn btn-pista">
+                    <i class="fas fa-lightbulb"></i> Pista <span id="contadorPista">1</span>
+                </button>
+                <div id="mensaje" class="mensaje"></div>
+            </div>
+            <span class="btn-volver" id="btnVolver"></span>
+
+        </section>
+        <!-- Modal -->
+        <div id="modalResultado" class="modal ocultar">
+            <div class="modal-contenido">
+                <span id="cerrarModal" class="cerrar">&times;</span>
+                <h2 id="tituloModal"><i class="fas fa-exclamation-circle"></i> Resultado</h2>
+                <p id="mensajeModal">Mensaje aquí</p>
+                <div id="accionesModal"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function revisarCampos() {
+            const activos = document.querySelectorAll('.casilla.activa');
+            const todosLlenos = Array.from(activos).every(input => input.value.trim() !== "");
+            document.getElementById('btnVerificar').disabled = !todosLlenos;
+        }
+
+        document.querySelectorAll('.casilla.activa').forEach(input => {
+            input.addEventListener('input', () => {
+            input.value = input.value.replace(/[^0-9+\-/]/g, '').toUpperCase();
+                revisarCampos();
+            });
+        });
+        document.querySelectorAll('.casilla.activa').forEach(input => {
+            input.addEventListener('keydown', (e) => {
+                const id = input.id; // ej: f3c5
+                const match = id.match(/f(\d+)c(\d+)/);
+                if (!match) return;
+
+                let fila = parseInt(match[1]);
+                let col = parseInt(match[2]);
+
+                function mover(fila, col, direccion) {
+                    let nextId = `f${fila}c${col}`;
+                    let nextInput = document.getElementById(nextId);
+
+        
+                    while (nextInput && !nextInput.classList.contains("activa")) {
+                        if (direccion === "up") fila--;
+                        if (direccion === "down") fila++;
+                        if (direccion === "left") col--;
+                        if (direccion === "right") col++;
+                        nextId = `f${fila}c${col}`;
+                        nextInput = document.getElementById(nextId);
+                    }
+
+                    if (nextInput && nextInput.classList.contains("activa")) {
+                        e.preventDefault();
+                        nextInput.focus();
+                    }
+                }
+                switch (e.key) {
+                    case "ArrowUp":
+                    mover(fila - 1, col, "up");
+                    break;
+                    case "ArrowDown":
+                    mover(fila + 1, col, "down");
+                    break;
+                    case "ArrowLeft":
+                    mover(fila, col - 1, "left");
+                    break;
+                    case "ArrowRight":
+                    mover(fila, col + 1, "right");
+                    break;
+                }
+            });
+        });
+
+        function mostrarModal(correcto) {
+            const modal = document.getElementById('modalResultado');
+            const titulo = document.getElementById('tituloModal');
+            const mensaje = document.getElementById('mensajeModal');
+            const acciones = document.getElementById('accionesModal');
+            modal.classList.remove('ocultar');
+            if (correcto) {
+                titulo.innerHTML = '<i class="fas fa-star"></i> ¡FELICIDADES!';
+                mensaje.textContent = 'Lo has logrado';
+                acciones.innerHTML = `
+                <button class="btn-modal" onclick="location.reload()"><i class="fas fa-redo"></i> Volver a resolver</button>
+                <button class="btn-modal" onclick="window.location.href='categoria.html'"><i class="fas fa-home"></i> Menú principal</button>
+                `;
+            } else {
+                titulo.innerHTML = '<i class="fas fa-exclamation-circle"></i> Incorrecto';
+                mensaje.textContent = 'Algunas palabras están mal. Intenta de nuevo.';
+                acciones.innerHTML = `
+                <button class="btn-modal" id="btnSeguir"><i class="fas fa-check"></i> OK</button>
+                `;
+                document.getElementById('btnSeguir').addEventListener('click', () => {
+                    modal.classList.add('ocultar');
+                });
+            }
+        }
+
+        document.getElementById('cerrarModal').addEventListener('click', () => {
+            document.getElementById('modalResultado').classList.add('ocultar');
+        });
+
+        // Verificación de palabras
+        function verificarPalabra(ids, palabraEsperada) {
+            ids.forEach(id => document.getElementById(id).classList.remove('error'));
+            const valores = ids.map(id => document.getElementById(id).value).join('').toLowerCase();
+            const objetivo = palabraEsperada.toLowerCase();
+            if (valores === objetivo) {
+                return true;
+            } else {
+                ids.forEach((id, i) => {
+                    const charEsperado = objetivo[i] || '';
+                    const charEntrada = (document.getElementById(id).value || '').toLowerCase();
+                    if (charEntrada !== charEsperado) {
+                        document.getElementById(id).classList.add('error');
+                    }
+                });
+                return false;
+            }
+        }
+        document.getElementById('btnVerificar').addEventListener('click', () => {
+            const palabraA = verificarPalabra(
+                ["f0c0"], "60"
+            );
+            const palabraB = verificarPalabra(
+                ["f0c4"], "80"
+            );
+            const palabraC = verificarPalabra(
+                ["f2c1"], "-"
+            ); 
+            const palabraD = verificarPalabra(
+                ["f2c2"],"2"
+            );
+            const palabraE = verificarPalabra(
+                ["f4c0"], "10"
+            ); 
+            const palabraF = verificarPalabra(
+                ["f4c2"],"10"
+            );
+            const palabraG = verificarPalabra(
+                ["f1c0"],"/"
+            );
+            const msj = document.getElementById('mensaje');
+            if (palabraA && palabraB && palabraC && palabraD && palabraE && palabraF && palabraG) {
+                mostrarModal(true);
+            } else {
+                mostrarModal(false);
+            }
+        });
+        const respuestas = {
+            "f0c0": "60",
+            "f0c4": "80",
+            "f1c0": "/",
+            "f2c1": "-",
+            "f2c2": "2",
+            "f4c0": "10",
+            "f4c2": "10"
+        };
+
+        let pistasDisponibles = 1;
+        document.getElementById('btnPista').addEventListener('click', () => {
+            if (pistasDisponibles > 0) {
+                const pendientes = Object.entries(respuestas).filter(([id, valor]) => {
+                    const input = document.getElementById(id);
+                    return input && input.value.toLowerCase() !== valor;
+                });
+                if (pendientes.length > 0) {
+                    const [id, valor] = pendientes[Math.floor(Math.random() * pendientes.length)];
+                    const input = document.getElementById(id);
+                    input.value = valor.toUpperCase();
+                    input.classList.add('pista-bloqueada');
+                    input.setAttribute('readonly', true);
+
+                    revisarCampos();
+                }
+                pistasDisponibles--;
+                document.getElementById('contadorPista').textContent = pistasDisponibles;
+                if (pistasDisponibles === 0) {
+                    document.getElementById('btnPista').disabled = true;
+                }
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('btnVolver').addEventListener('click', function() {
+                window.location.href = 'categoria.html';
+            })
+        });
+    </script>
+</body>
+</html>

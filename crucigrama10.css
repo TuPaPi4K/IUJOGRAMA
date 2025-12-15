@@ -1,0 +1,611 @@
+body {
+  background: url("img/fondo9.jpeg") no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Comic Sans MS', cursive;
+  color: #5c3d2e;
+  text-align: center;
+  margin: 0;
+}
+
+
+.titulo {
+  font-size: 32px;
+  color: #ffd900;
+  text-shadow: 3px 3px 0 #5c3d2e;
+  margin: 24px 0;
+}
+.pistas {
+  display: flex;
+  justify-content: center;  
+  align-items: flex-start;  
+  gap: 5px;                 
+  margin: 20px auto;
+  max-width: 900px;     
+  align-items: stretch;     
+  
+}
+
+
+.pista {
+  background: #e8caa9;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 6px 6px 0 #5c3d2e;
+  width: 250px;            
+  text-align: left;
+  height: 500px;   
+}
+.pistas .pista-item h4 {
+  margin-bottom: 0;  
+}
+
+.pista strong {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #5c3d2e;
+}
+
+.pista-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.pista-num {
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 8px;
+  color: #5c3d2e;
+}
+
+
+.pista-item img {
+  width: 60px;
+  height: 45px;
+  object-fit: contain; 
+  filter: drop-shadow(2px 2px 0 #5c3d2e);
+}
+
+.tablero-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.acciones {
+    margin-top: 20px; 
+    text-align: center;   
+    max-width: 860px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.tablero {
+  border-collapse: collapse;
+  box-shadow: 8px 8px 0 #4f382c;
+  background: #2c2929;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+.casilla {
+  width: 40px;
+  height: 42px;
+  text-align: center;
+  font-size: 20px;
+  border: 2px solid #ffffff;
+  outline: none;
+}
+
+.activa:focus {
+  background-color: #ffdca0;
+
+}
+.activa {
+  background-color: #ffffff;
+}
+
+
+.btn {
+  font-family: inherit;
+  font-size: 20px;
+  color: #fff;
+  background: linear-gradient(180deg, #7aa8d1, #4a87bd);
+  border: 0;
+  border-radius: 14px;
+  padding: 10px 18px;
+  text-shadow: 2px 2px #333;
+  box-shadow: 6px 6px 0 #5c3d2e;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn:hover:enabled {
+  transform: translateY(-3px);
+  box-shadow: 8px 8px 0 #3e2a1f;
+}
+
+
+.btn:disabled {
+  background: #aaa;      
+  color: #eee;
+  cursor: not-allowed;
+  box-shadow: none;
+  text-shadow: none;
+  position: relative;
+}
+
+
+.btn:disabled::after {
+  content: "El botón se activará cuando llenes todas las casillas";
+  position: absolute;
+  top: 110%; 
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+
+.btn:disabled:hover::after {
+  opacity: 1;
+}
+
+
+.btn-verificar:disabled {
+  background: #aaa;
+  color: #eee;
+  cursor: not-allowed;
+  box-shadow: none;
+  text-shadow: none;
+  position: relative;
+}
+.btn-verificar:disabled::after {
+  content: "El botón se activará cuando llenes todas las casillas";
+  position: absolute; top: 110%; left: 50%; transform: translateX(-50%);
+  background: #333; color: #fff; padding: 6px 10px; border-radius: 6px;
+  font-size: 14px; white-space: nowrap; opacity: 0; pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.btn-verificar:disabled:hover::after { opacity: 1; }
+
+
+.btn-pista:disabled {
+  background: #555;
+  color: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+  text-shadow: none;
+  position: relative;
+}
+.btn-pista:disabled::after {
+  content: "Ya no quedan pistas disponibles";
+  position: absolute; top: 110%; left: 50%; transform: translateX(-50%);
+  background: #222; color: #fff; padding: 6px 10px; border-radius: 6px;
+  font-size: 14px; white-space: nowrap; opacity: 0; pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.btn-pista:disabled:hover::after { opacity: 1; }
+.btn-pista {
+  font-family: inherit;
+  font-size: 20px;
+  color: #fff;
+  background: linear-gradient(180deg, #f7b733, #fc4a1a);
+  border: 0;
+  border-radius: 14px;
+  padding: 10px 18px;
+  text-shadow: 2px 2px #333;
+  box-shadow: 6px 6px 0 #5c3d2e;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-pista:hover:enabled {
+  transform: translateY(-3px);
+  box-shadow: 8px 8px 0 #3e2a1f;
+}
+
+.pista-bloqueada {
+  background-color: #fcdd79 !important;
+
+  pointer-events: none;   
+}
+
+
+.mensaje {
+  margin-top: 12px;
+  font-size: 18px;
+}
+
+.mensaje.ok {
+  color: #2a7c3b;
+}
+
+.mensaje.warn {
+  color: #b0302a;
+}
+
+.bloqueada {
+  background-color: #1a1918; 
+  color: transparent;     
+  pointer-events: none;  
+  border: 2px solid #1b0c0c;
+}
+
+.contenido-juego {
+display: flex;
+justify-content: center; 
+align-items: flex-start;
+gap: 40px; 
+margin-top: 20px;
+flex-wrap: wrap; 
+
+max-width: 1200px;
+margin-left: auto; 
+margin-right: auto; 
+}
+
+
+
+.casilla1 {
+  position: relative;
+}
+
+.casilla1::before {
+  content: "1"; 
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  font-size: 13px;
+  color: #161515;
+}
+.casilla2 {
+  position: relative;
+}
+
+.casilla2::before {
+  content: "2"; 
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  font-size: 13px;
+  color: #161515;
+}
+.casilla3 {
+  position: relative;
+}
+
+.casilla3::before {
+  content: "3";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  font-size: 13px;
+  color: #161515;
+}
+.casilla4 {
+  position: relative;
+}
+
+.casilla4::before {
+  content: "4";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  font-size: 13px;
+  color: #161515;
+}
+.casilla5 {
+  position: relative;
+}
+
+.casilla5::before {
+  content: "5"; 
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  font-size: 13px;
+  color: #161515;
+}
+.casilla6 {
+  position: relative;
+}
+
+.casilla6::before {
+  content: "6"; 
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  font-size: 13px;
+  color: #161515;
+}
+.casilla7 {
+  position: relative;
+}
+
+.casilla7::before {
+  content: "7";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  font-size: 13px;
+  color: #161515;
+}
+.casilla8 {
+  position: relative;
+}
+
+.casilla8::before {
+  content: "8"; 
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  font-size: 13px;
+  color: #161515;
+}
+.casilla9 {
+  position: relative;
+}
+
+.casilla9::before {
+  content: "9";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  font-size: 13px;
+  color: #161515;
+}
+.casilla10 {
+  position: relative;
+}
+
+.casilla10::before {
+  content: "10";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  font-size: 13px;
+  color: #161515;
+}
+.casilla11 {
+  position: relative;
+}
+
+.casilla11::before {
+  content: "11";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  font-size: 13px;
+  color: #161515;
+}
+.casilla12 {
+  position: relative;
+}
+
+.casilla12::before {
+  content: "12";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  font-size: 13px;
+  color: #161515;
+}
+.casilla13 {
+  position: relative;
+}
+
+.casilla13::before {
+  content: "13";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  font-size: 13px;
+  color: #161515;
+}
+.casilla14 {
+  position: relative;
+}
+
+.casilla14::before {
+  content: "14";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  font-size: 13px;
+  color: #161515;
+}
+.casilla15 {
+  position: relative;
+}
+
+.casilla15::before {
+  content: "15";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  font-size: 13px;
+  color: #161515;
+}
+
+.casilla16 {
+  position: relative;
+}
+
+.casilla16::before {
+  content: "16";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  font-size: 13px;
+  color: #161515;
+}
+.casilla17 {
+  position: relative;
+}
+
+.casilla17::before {
+  content: "17";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  font-size: 13px;
+  color: #161515;
+}
+.casilla18 {
+  position: relative;
+}
+
+.casilla18::before {
+  content: "18";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  font-size: 13px;
+  color: #161515;
+}
+.casilla19 {
+  position: relative;
+}
+
+.casilla19::before {
+  content: "19";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  font-size: 13px;
+  color: #161515;
+}
+.casilla20 {
+  position: relative;
+}
+
+.casilla20::before {
+  content: "20";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  font-size: 13px;
+  color: #161515;
+}
+
+
+
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  font-family: 'Comic Sans MS', cursive;
+}
+
+.modal.ocultar {
+  display: none;
+}
+
+.modal-contenido {
+  background: #f1debd;
+  border: 4px solid #5c3d2e;
+  border-radius: 20px;
+  padding: 24px;
+  width: 320px;
+  text-align: center;
+  box-shadow: 8px 8px 0 #3e2a1f;
+  position: relative;
+}
+
+.modal-contenido h2 {
+  font-size: 24px;
+  color: #b0302a;
+  text-shadow: 2px 2px 0 #fff;
+  margin-bottom: 12px;
+}
+
+.modal-contenido p {
+  font-size: 18px;
+  color: #5c3d2e;
+  margin-bottom: 16px;
+}
+
+.cerrar {
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  font-size: 24px;
+  color: #5c3d2e;
+  cursor: pointer;
+}
+
+.btn-modal {
+  font-size: 16px;
+  margin: 8px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  background: linear-gradient(180deg, #7aa8d1, #4a87bd);
+  color: #fff;
+  text-shadow: 1px 1px 2px #333;
+  box-shadow: 4px 4px 0 #5c3d2e;
+  transition: transform 0.2s ease;
+}
+
+.btn-modal:hover {
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 0 #3e2a1f;
+}
+
+.btn-modal i {
+  margin-right: 6px;
+}
+
+.btn-volver {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 100px;
+  height: 120px;
+  background-image: url('img/volver.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform 0.2s ease;
+}
+
+.btn-volver:hover {
+  transform: translateY(-3px);
+}
+
+.casilla.error {
+  background-color: #f8d7da !important; 
+  border: 2px solid #b0302a !important;  
+}
+
+
+#contadorPista {
+  background: #fff;
+  color: #b0302a;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 50%;
+  margin-left: 4px;
+}

@@ -1,0 +1,98 @@
+body {
+  margin: 0;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background: url('img/fondo8.jpeg') center/cover fixed;
+  color: #1f2a44;
+  padding: 20px;
+}
+
+
+main {
+  max-width: 900px;
+  margin: auto;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+h1 {
+  font-size: 2.2em;
+  margin: 0;
+}
+
+.subtitulo {
+  font-size: 1.2em;
+  color: #1f2a44;
+}
+
+section {
+  background: #c99561;
+  border-radius: 22px;
+  border: 4px solid #5c3d2e;
+  box-shadow: 8px 8px 0 #5c3d2e;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+section h2 {
+  margin-top: 0;
+  font-size: 1.4em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+li {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.9em;
+  color: #1f2a44;
+  margin-top: 40px;
+}
+footer p {
+  font-size: 1.4em;    
+  font-weight: bold;      
+  color: #1f2a44;  
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3); 
+  margin-top: 20px;
+}
+
+.acciones {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.btn-volver {
+  width: 100px;
+  height: 120px;
+  background-image: url('img/volver.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn-volver:hover {
+  transform: translateY(-3px);
+}
+
