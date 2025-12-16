@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crucigramas</title>
     <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
     <h1>Crucigrama</h1>
-    <div class="menu">
-        <button type="button" id="ir_categoria" class="botones_menu1">JUGAR</button>
-        <br>
-        <button type="button" id="creditos" class="botones_menu2">CRÉDITOS</button>
+    <div class="menu-buttons">
+        <button id="start-btn" class="btn primary">Jugar</button>
+        <button id="ranking-btn" class="btn secondary">Ranking</button>
+        <button id="credits-btn" class="btn secondary">Créditos</button>
     </div>
     <script>
-    document.getElementById('ir_categoria').addEventListener('click', function() {
-        window.location.href = 'categoria.html';     
-    });
-    document.getElementById('creditos').addEventListener('click', function() {
-        window.location.href = 'creditos.html';     
-    });
+        document.getElementById('ir_categoria').addEventListener('click', function () {
+            window.location.href = 'categoria.html';
+        });
+        document.getElementById('creditos').addEventListener('click', function () {
+            window.location.href = 'creditos.html';
+        });
     </script>
 </body>
+
 </html>

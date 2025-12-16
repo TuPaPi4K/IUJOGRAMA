@@ -1,0 +1,229 @@
+:root {
+    --color-fondo: #f4e4bc; /* Color tipo papiro/mapa */
+    --color-texto: #5c3d2e;
+    --color-borde: #5c3d2e;
+    --color-celda: #ffffff;
+    --color-bloqueada: #2c2929;
+    --color-seleccion: #ffdca0;
+    --celda-tamano: clamp(30px, 5vw, 45px); /* Magia responsiva */
+}
+
+body {
+    margin: 0;
+    font-family: 'Comic Sans MS', 'Verdana', sans-serif;
+    background-color: var(--color-fondo);
+    background-image: url('img/fondo3.jpeg'); /* Asegúrate que la ruta sea correcta */
+    background-size: cover;
+    background-attachment: fixed;
+    color: var(--color-texto);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* HEADER */
+.encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.timer {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #d32f2f;
+}
+
+/* LAYOUT PRINCIPAL */
+.contenedor-juego {
+    flex: 1;
+    display: flex;
+    flex-direction: column; /* Móvil primero (Vertical) */
+    align-items: center;
+    padding: 10px;
+    gap: 20px;
+    overflow-y: auto;
+}
+
+/* MEDIA QUERY: En pantallas grandes (PC/Tablet), poner lado a lado */
+@media (min-width: 768px) {
+    .contenedor-juego {
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+    }
+}
+
+/* TABLERO (GRID) */
+.grid-tablero {
+    display: grid;
+    /* Esto definirá columnas automáticamente desde JS, pero por defecto: */
+    gap: 2px;
+    background-color: var(--color-texto);
+    padding: 5px;
+    border-radius: 8px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+}
+
+.casilla {
+    width: var(--celda-tamano);
+    height: var(--celda-tamano);
+    text-align: center;
+    font-size: calc(var(--celda-tamano) * 0.6);
+    border: none;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--color-texto);
+    background-color: var(--color-celda);
+}
+
+.casilla.bloqueada {
+    background-color: var(--color-bloqueada);
+    pointer-events: none;
+}
+
+.casilla:focus {
+    background-color: var(--color-seleccion);
+}
+
+/* PISTAS */
+.panel-pistas {
+    background: rgba(232, 202, 169, 0.95);
+    padding: 15px;
+    border-radius: 10px;
+    max-width: 90%;
+    width: 100%;
+    max-height: 250px; /* Scroll en móvil si es muy largo */
+    overflow-y: auto;
+    border: 2px solid var(--color-borde);
+}
+
+@media (min-width: 768px) {
+    .panel-pistas {
+        max-width: 300px;
+        max-height: 80vh; /* En PC usar altura completa */
+    }
+}
+
+.lista-pistas {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-pistas li {
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.lista-pistas li:hover {
+    color: #d32f2f;
+    text-decoration: underline;
+}
+
+/* BOTONES */
+.acciones {
+    padding: 15px;
+    text-align: center;
+    background: rgba(255,255,255,0.5);
+}
+
+.btn-principal {
+    background: linear-gradient(180deg, #7aa8d1, #4a87bd);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #2c3e50;
+}
+
+.btn-principal:active {
+    transform: translateY(4px);
+    box-shadow: none;
+}
+
+/* UTILIDADES */
+.oculto { display: none !important; }
+
+/* MODAL */
+.modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.modal-contenido {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    border: 5px solid var(--color-texto);
+}
+
+/* Agrega esto al final de estilos.css */
+
+.numero-celda {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    font-size: 0.6em; /* Pequeño */
+    font-weight: bold;
+    color: var(--color-texto);
+    pointer-events: none; /* Que el click pase al input */
+    z-index: 10;
+}
+
+.casilla.error {
+    background-color: #ffcccc !important;
+    transition: background 0.3s;
+}
+
+.casilla.pista-usada {
+    background-color: #ffffaa !important;
+    color: #d35400;
+}
+
+/* --- ESTILOS EXTRA PARA MOTOR UNIVERSAL --- */
+
+/* Pistas con imágenes */
+.pista-img {
+    max-width: 60px;
+    vertical-align: middle;
+    border: 2px solid #5c3d2e;
+    border-radius: 5px;
+    background: #fff;
+}
+
+/* Casillas con números (Estilo Matemático) */
+/* Usamos ::before para poner el número o signo sin afectar el input */
+.celda-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Clases específicas extraídas de tus archivos originales */
+.casilla1::before { content: "1"; position: absolute; top: 2px; left: 2px; font-size: 10px; z-index: 5; }
+.casilla2::before { content: "+"; position: absolute; top: 25%; left: 30%; font-size: 20px; z-index: 5; font-weight: bold; }
+.casilla3::before { content: "="; position: absolute; top: 25%; left: 30%; font-size: 20px; z-index: 5; font-weight: bold; }
+.casilla4::before { content: "6"; position: absolute; top: 25%; left: 35%; font-size: 20px; z-index: 5; }
+/* ... Agrega aquí el resto de reglas casillaX que tenías en tus CSS matemáticos ... */
+/* Por ejemplo: */
+.casilla9::before { content: "9"; position: absolute; top: 2px; left: 2px; font-size: 10px; }
+
+/* Ajuste del input para que no tape el número pequeño */
+.celda-wrapper input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 1; /* El input va sobre el ::before pero con fondo transparente si es necesario */
+}
