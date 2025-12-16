@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -10,17 +10,31 @@
 
 <body>
     <h1>Crucigrama</h1>
-    <div class="menu-buttons">
-        <button id="start-btn" class="btn primary">Jugar</button>
-        <button id="ranking-btn" class="btn secondary">Ranking</button>
-        <button id="credits-btn" class="btn secondary">Créditos</button>
+    
+    <div class="menu">
+        <button id="start-btn" class="botones_menu1">Jugar</button>
+        
+        <button id="ranking-btn" class="botones_menu2">Ranking</button>
+        
+        <button id="credits-btn" class="botones_menu2">Créditos</button>
     </div>
+
     <script>
-        document.getElementById('ir_categoria').addEventListener('click', function () {
-            window.location.href = 'categoria.html';
+        // 1. Botón JUGAR (start-btn) -> Va a categoria.html
+        document.getElementById('start-btn').addEventListener('click', function () {
+            window.location.href = 'categoria.html'; //
         });
-        document.getElementById('creditos').addEventListener('click', function () {
-            window.location.href = 'creditos.html';
+
+        // 2. Botón RANKING (ranking-btn) -> Pon aquí tu lógica o alerta
+        document.getElementById('ranking-btn').addEventListener('click', function () {
+            // Si tienes un archivo ranking.html, descomenta la línea de abajo:
+            // window.location.href = 'ranking.html';
+            alert("Aquí se mostrará el Ranking");
+        });
+
+        // 3. Botón CRÉDITOS (credits-btn) -> Va a creditos.html
+        document.getElementById('credits-btn').addEventListener('click', function () {
+            window.location.href = 'creditos.html'; //
         });
     </script>
 </body>

@@ -1,229 +1,252 @@
-:root {
-    --color-fondo: #f4e4bc; /* Color tipo papiro/mapa */
-    --color-texto: #5c3d2e;
-    --color-borde: #5c3d2e;
-    --color-celda: #ffffff;
-    --color-bloqueada: #2c2929;
-    --color-seleccion: #ffdca0;
-    --celda-tamano: clamp(30px, 5vw, 45px); /* Magia responsiva */
-}
-
+/* --- ESTILO VISUAL ORIGINAL (BASE: crucigrama1.css) --- */
 body {
-    margin: 0;
-    font-family: 'Comic Sans MS', 'Verdana', sans-serif;
-    background-color: var(--color-fondo);
-    background-image: url('img/fondo3.jpeg'); /* Asegúrate que la ruta sea correcta */
-    background-size: cover;
-    background-attachment: fixed;
-    color: var(--color-texto);
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+  background: url("img/fondo3.jpeg") no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  color: #5c3d2e;
+  text-align: center;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-/* HEADER */
+/* --- HEADER / ENCABEZADO --- */
 .encabezado {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    background: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    padding: 10px 40px;
+    background: rgba(255, 255, 255, 0.4); /* Un poco transparente para ver fondo */
 }
+
+.titulo {
+  font-size: 32px;
+  color: #ffd900;
+  text-shadow: 3px 3px 0 #5c3d2e;
+  margin: 10px 0;
+  flex-grow: 1;
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #5c3d2e;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.btn-icon:hover { transform: scale(1.2); }
 
 .timer {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #d32f2f;
+    color: #b0302a;
+    background: #fff;
+    padding: 5px 15px;
+    border-radius: 10px;
+    border: 2px solid #5c3d2e;
+    box-shadow: 3px 3px 0 #5c3d2e;
 }
 
-/* LAYOUT PRINCIPAL */
-.contenedor-juego {
-    flex: 1;
+/* --- CONTENEDOR PRINCIPAL --- */
+.contenido-juego {
+  display: flex;
+  justify-content: center;  
+  align-items: flex-start;  
+  gap: 20px;                 
+  margin: 20px auto;
+  max-width: 1200px;     
+  flex-wrap: wrap;
+}
+
+/* --- PISTAS (LAYOUT) --- */
+.pistas {
     display: flex;
-    flex-direction: column; /* Móvil primero (Vertical) */
-    align-items: center;
-    padding: 10px;
     gap: 20px;
-    overflow-y: auto;
 }
 
-/* MEDIA QUERY: En pantallas grandes (PC/Tablet), poner lado a lado */
-@media (min-width: 768px) {
-    .contenedor-juego {
-        flex-direction: row;
-        justify-content: center;
-        align-items: flex-start;
-    }
+.columna-pistas {
+  background: #e8caa9;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 6px 6px 0 #5c3d2e;
+  width: 220px;            
+  text-align: left;
+  max-height: 600px;
+  overflow-y: auto;
 }
 
-/* TABLERO (GRID) */
-.grid-tablero {
-    display: grid;
-    /* Esto definirá columnas automáticamente desde JS, pero por defecto: */
-    gap: 2px;
-    background-color: var(--color-texto);
-    padding: 5px;
-    border-radius: 8px;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+.columna-pistas h3 {
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #5c3d2e;
+  border-bottom: 2px solid #5c3d2e;
 }
 
-.casilla {
-    width: var(--celda-tamano);
-    height: var(--celda-tamano);
-    text-align: center;
-    font-size: calc(var(--celda-tamano) * 0.6);
-    border: none;
-    outline: none;
-    text-transform: uppercase;
-    font-weight: bold;
-    color: var(--color-texto);
-    background-color: var(--color-celda);
+.pista-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+
+.pista-item:hover {
+    background-color: rgba(255,255,255,0.3);
+    border-radius: 5px;
+}
+
+.num-pista {
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 8px;
+  color: #5c3d2e;
+}
+
+/* Imágenes en las pistas */
+.pista-img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain; 
+  filter: drop-shadow(2px 2px 0 #5c3d2e);
+  background: #fff;
+  border-radius: 5px;
+  border: 1px solid #5c3d2e;
+}
+
+.pista-texto {
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+/* --- TABLERO --- */
+.tablero-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Convertimos el GRID de JS para que parezca tu TABLE de CSS */
+#tablero {
+  display: grid;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 8px 8px 0 #4f382c;
+  background: #2c2929; /* Fondo oscuro del tablero */
+  gap: 0; /* Sin espacio para simular bordes de tabla */
+}
+
+/* Envoltorio de cada celda (el <td> simulado) */
+.celda-wrapper {
+    position: relative;
+    width: 44px; /* Un poco más ancho por los bordes */
+    height: 46px;
+    box-sizing: border-box;
+}
+
+/* Los inputs (casillas) */
+input.casilla {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-family: inherit;
+  font-size: 20px;
+  border: 1px solid #ffffff; /* Bordes blancos internos */
+  outline: none;
+  border-radius: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos de estado */
+.casilla.activa {
+  background-color: #ffffff;
+  color: #000;
+}
+.casilla.activa:focus {
+  background-color: #ffdca0;
 }
 
 .casilla.bloqueada {
-    background-color: var(--color-bloqueada);
-    pointer-events: none;
-}
-
-.casilla:focus {
-    background-color: var(--color-seleccion);
-}
-
-/* PISTAS */
-.panel-pistas {
-    background: rgba(232, 202, 169, 0.95);
-    padding: 15px;
-    border-radius: 10px;
-    max-width: 90%;
-    width: 100%;
-    max-height: 250px; /* Scroll en móvil si es muy largo */
-    overflow-y: auto;
-    border: 2px solid var(--color-borde);
-}
-
-@media (min-width: 768px) {
-    .panel-pistas {
-        max-width: 300px;
-        max-height: 80vh; /* En PC usar altura completa */
-    }
-}
-
-.lista-pistas {
-    list-style: none;
-    padding: 0;
-}
-
-.lista-pistas li {
-    margin-bottom: 8px;
-    font-size: 0.9rem;
-    cursor: pointer;
-}
-
-.lista-pistas li:hover {
-    color: #d32f2f;
-    text-decoration: underline;
-}
-
-/* BOTONES */
-.acciones {
-    padding: 15px;
-    text-align: center;
-    background: rgba(255,255,255,0.5);
-}
-
-.btn-principal {
-    background: linear-gradient(180deg, #7aa8d1, #4a87bd);
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    font-size: 1.1rem;
-    border-radius: 8px;
-    cursor: pointer;
-    box-shadow: 0 4px 0 #2c3e50;
-}
-
-.btn-principal:active {
-    transform: translateY(4px);
-    box-shadow: none;
-}
-
-/* UTILIDADES */
-.oculto { display: none !important; }
-
-/* MODAL */
-.modal {
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-.modal-contenido {
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    text-align: center;
-    border: 5px solid var(--color-texto);
-}
-
-/* Agrega esto al final de estilos.css */
-
-.numero-celda {
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    font-size: 0.6em; /* Pequeño */
-    font-weight: bold;
-    color: var(--color-texto);
-    pointer-events: none; /* Que el click pase al input */
-    z-index: 10;
+  background-color: #1a1918; 
+  color: transparent;     
+  pointer-events: none;  
+  border: 1px solid #444;
 }
 
 .casilla.error {
-    background-color: #ffcccc !important;
-    transition: background 0.3s;
+  background-color: #f8d7da !important;
 }
-
 .casilla.pista-usada {
-    background-color: #ffffaa !important;
-    color: #d35400;
+  background-color: #fcdd79 !important; /* Color amarillo de tu CSS */
+}
+.casilla.correcto {
+  background-color: #d4edda !important;
 }
 
-/* --- ESTILOS EXTRA PARA MOTOR UNIVERSAL --- */
+/* --- NUMERITOS DE LAS ESQUINAS (CLAVE) --- */
+/* Usamos las mismas clases que tenías: casilla1, casilla2... */
+.celda-wrapper.casilla1::before { content: "1"; position: absolute; top: 2px; left: 3px; font-size: 12px; color: #161515; z-index: 5; pointer-events: none; }
+.celda-wrapper.casilla2::before { content: "2"; position: absolute; top: 2px; left: 3px; font-size: 12px; color: #161515; z-index: 5; pointer-events: none; }
+.celda-wrapper.casilla3::before { content: "3"; position: absolute; top: 2px; left: 3px; font-size: 12px; color: #161515; z-index: 5; pointer-events: none; }
+.celda-wrapper.casilla4::before { content: "4"; position: absolute; top: 2px; left: 3px; font-size: 12px; color: #161515; z-index: 5; pointer-events: none; }
+.celda-wrapper.casilla5::before { content: "5"; position: absolute; top: 2px; left: 3px; font-size: 12px; color: #161515; z-index: 5; pointer-events: none; }
+.celda-wrapper.casilla6::before { content: "6"; position: absolute; top: 2px; left: 3px; font-size: 12px; color: #161515; z-index: 5; pointer-events: none; }
+.celda-wrapper.casilla7::before { content: "7"; position: absolute; top: 2px; left: 3px; font-size: 12px; color: #161515; z-index: 5; pointer-events: none; }
+.celda-wrapper.casilla8::before { content: "8"; position: absolute; top: 2px; left: 3px; font-size: 12px; color: #161515; z-index: 5; pointer-events: none; }
+.celda-wrapper.casilla9::before { content: "9"; position: absolute; top: 2px; left: 3px; font-size: 12px; color: #161515; z-index: 5; pointer-events: none; }
+.celda-wrapper.casilla10::before { content: "10"; position: absolute; top: 2px; left: 3px; font-size: 12px; color: #161515; z-index: 5; pointer-events: none; }
+/* Añade más si tus niveles llegan al 20, 30... */
+.celda-wrapper.casilla11::before { content: "11"; position: absolute; top: 2px; left: 3px; font-size: 12px; color: #161515; z-index: 5; pointer-events: none; }
+.celda-wrapper.casilla12::before { content: "12"; position: absolute; top: 2px; left: 3px; font-size: 12px; color: #161515; z-index: 5; pointer-events: none; }
 
-/* Pistas con imágenes */
-.pista-img {
-    max-width: 60px;
-    vertical-align: middle;
-    border: 2px solid #5c3d2e;
-    border-radius: 5px;
-    background: #fff;
+/* --- BOTONES --- */
+.acciones {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
 }
 
-/* Casillas con números (Estilo Matemático) */
-/* Usamos ::before para poner el número o signo sin afectar el input */
-.celda-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
+.btn-principal {
+  font-family: inherit;
+  font-size: 20px;
+  color: #fff;
+  background: linear-gradient(180deg, #7aa8d1, #4a87bd);
+  border: 0;
+  border-radius: 14px;
+  padding: 10px 18px;
+  text-shadow: 2px 2px #333;
+  box-shadow: 6px 6px 0 #5c3d2e;
+  cursor: pointer;
+  transition: transform 0.15s ease;
 }
 
-/* Clases específicas extraídas de tus archivos originales */
-.casilla1::before { content: "1"; position: absolute; top: 2px; left: 2px; font-size: 10px; z-index: 5; }
-.casilla2::before { content: "+"; position: absolute; top: 25%; left: 30%; font-size: 20px; z-index: 5; font-weight: bold; }
-.casilla3::before { content: "="; position: absolute; top: 25%; left: 30%; font-size: 20px; z-index: 5; font-weight: bold; }
-.casilla4::before { content: "6"; position: absolute; top: 25%; left: 35%; font-size: 20px; z-index: 5; }
-/* ... Agrega aquí el resto de reglas casillaX que tenías en tus CSS matemáticos ... */
-/* Por ejemplo: */
-.casilla9::before { content: "9"; position: absolute; top: 2px; left: 2px; font-size: 10px; }
-
-/* Ajuste del input para que no tape el número pequeño */
-.celda-wrapper input {
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    z-index: 1; /* El input va sobre el ::before pero con fondo transparente si es necesario */
+.btn-secundario {
+  font-family: inherit;
+  font-size: 20px;
+  color: #fff;
+  background: linear-gradient(180deg, #f7b733, #fc4a1a); /* Naranja de pista */
+  border: 0;
+  border-radius: 14px;
+  padding: 10px 18px;
+  text-shadow: 2px 2px #333;
+  box-shadow: 6px 6px 0 #5c3d2e;
+  cursor: pointer;
 }
+
+.btn-principal:hover, .btn-secundario:hover {
+  transform: translateY(-3px);
+  box-shadow: 8px 8px 0 #3e2a1f;
+}
+
+/* Botón Volver (con imagen) */
+.btn-volver-img {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.btn-volver-img:hover { transform: scale(1.1); }

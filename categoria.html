@@ -205,283 +205,71 @@
         </section>
     </main>
     <script>
-        function cerrarTodosLosMenus() {
-            const menus = document.querySelectorAll('.menu_dificultad');
-            menus.forEach(menu => menu.classList.add('ocultar'));
-        }
-        //IR A CRUCIGRAMA FACIL CON IMAGENES PANTALLA DE CARGA
-        function iniciarCargaYRedireccion(urlDestino) {
-            const pantalla = document.getElementById('pantallaCarga');
-            const barra = document.getElementById('barraProgreso');
-            const texto = document.getElementById('porcentaje');
-            pantalla.classList.remove('ocultar');
-            let progreso = 0;
-            const intervalo = setInterval(() => {
-                progreso++;
-                barra.style.width = progreso + '%';
-                texto.textContent = progreso + '%';
-                if (progreso >= 100) {
-                    clearInterval(intervalo);
-                    window.location.href = urlDestino;
-                }
-            }, 80); 
-        }
-        //IR A CRUCIGRAMA MEDIO CON IMAGENES PANTALLA DE CARGA
-        function iniciarCargaYRedireccion1(urlDestino) {
-            const pantalla = document.getElementById('pantallaCarga1');
-            const barra = document.getElementById('barraProgreso1');
-            const texto = document.getElementById('porcentaje1');
-            pantalla.classList.remove('ocultar');
-            let progreso = 0;
-            const intervalo = setInterval(() => {
-                progreso++;
-                barra.style.width = progreso + '%';
-                texto.textContent = progreso + '%';
-                if (progreso >= 100) {
-                    clearInterval(intervalo);
-                    window.location.href = urlDestino;
-                }
-            }, 80); 
-        }
-        //IR A CRUCIGRAMA DIFÍCIL CON IMAGENES PANTALLA DE CARGA
-        function iniciarCargaYRedireccion3(urlDestino) {
-            const pantalla = document.getElementById('pantallaCarga3');
-            const barra = document.getElementById('barraProgreso3');
-            const texto = document.getElementById('porcentaje3');
-            pantalla.classList.remove('ocultar');
-            let progreso = 0;
-            const intervalo = setInterval(() => {
-                progreso++;
-                barra.style.width = progreso + '%';
-                texto.textContent = progreso + '%';
-                if (progreso >= 100) {
-                    clearInterval(intervalo);
-                    window.location.href = urlDestino;
-                }
-            }, 80); 
-        }
-        //IR A CRUCIGRAMA FÁCIL CRIPTICO PANTALLA DE CARGA
-        function iniciarCargaYRedireccion4(urlDestino) {
-            const pantalla = document.getElementById('pantallaCarga4');
-            const barra = document.getElementById('barraProgreso4');
-            const texto = document.getElementById('porcentaje4');
-            pantalla.classList.remove('ocultar');
-            let progreso = 0;
-            const intervalo = setInterval(() => {
-                progreso++;
-                barra.style.width = progreso + '%';
-                texto.textContent = progreso + '%';
-                if (progreso >= 100) {
-                    clearInterval(intervalo);
-                    window.location.href = urlDestino;
-                }
-            }, 80); 
-        }
-        //IR A CRUCIGRAMA MEDIO CRIPTICO PANTALLA DE CARGA
-        function iniciarCargaYRedireccion5(urlDestino) {
-            const pantalla = document.getElementById('pantallaCarga5');
-            const barra = document.getElementById('barraProgreso5');
-            const texto = document.getElementById('porcentaje5');
-            pantalla.classList.remove('ocultar');
-            let progreso = 0;
-            const intervalo = setInterval(() => {
-                progreso++;
-                barra.style.width = progreso + '%';
-                texto.textContent = progreso + '%';
-                if (progreso >= 100) {
-                    clearInterval(intervalo);
-                    window.location.href = urlDestino;
-                }
-            }, 80); 
-        }
-        //IR A CRUCIGRAMA DIFICIL CRIPTICO PANTALLA DE CARGA
-        function iniciarCargaYRedireccion6(urlDestino) {
-            const pantalla = document.getElementById('pantallaCarga6');
-            const barra = document.getElementById('barraProgreso6');
-            const texto = document.getElementById('porcentaje6');
-            pantalla.classList.remove('ocultar');
-            let progreso = 0;
-            const intervalo = setInterval(() => {
-                progreso++;
-                barra.style.width = progreso + '%';
-                texto.textContent = progreso + '%';
-                if (progreso >= 100) {
-                    clearInterval(intervalo);
-                    window.location.href = urlDestino;
-                }
-            }, 80); 
-        }
-        //IR A CRUCIGRAMA FÁCIL MATEMÁTICP PANTALLA DE CARGA
-        function iniciarCargaYRedireccion7(urlDestino) {
-            const pantalla = document.getElementById('pantallaCarga7');
-            const barra = document.getElementById('barraProgreso7');
-            const texto = document.getElementById('porcentaje7');
-            pantalla.classList.remove('ocultar');
-            let progreso = 0;
-            const intervalo = setInterval(() => {
-                progreso++;
-                barra.style.width = progreso + '%';
-                texto.textContent = progreso + '%';
-                if (progreso >= 100) {
-                    clearInterval(intervalo);
-                    window.location.href = urlDestino;
-                }
-            }, 80); 
-        }
-        //IR A CRUCIGRAMA MEDIO MATEMÁTICO PANTALLA DE CARGA
-        function iniciarCargaYRedireccion8(urlDestino) {
-            const pantalla = document.getElementById('pantallaCarga8');
-            const barra = document.getElementById('barraProgreso8');
-            const texto = document.getElementById('porcentaje8');
-            pantalla.classList.remove('ocultar');
-            let progreso = 0;
-            const intervalo = setInterval(() => {
-                progreso++;
-                barra.style.width = progreso + '%';
-                texto.textContent = progreso + '%';
-                if (progreso >= 100) {
-                    clearInterval(intervalo);
-                    window.location.href = urlDestino;
-                }
-            }, 80); 
-        }
-        //IR A CRUCIGRAMA DIFICIL MATEMÁTICO PANTALLA DE CARGA
-        function iniciarCargaYRedireccion9(urlDestino) {
-            const pantalla = document.getElementById('pantallaCarga9');
-            const barra = document.getElementById('barraProgreso9');
-            const texto = document.getElementById('porcentaje9');
-            pantalla.classList.remove('ocultar');
-            let progreso = 0;
-            const intervalo = setInterval(() => {
-                progreso++;
-                barra.style.width = progreso + '%';
-                texto.textContent = progreso + '%';
-                if (progreso >= 100) {
-                    clearInterval(intervalo);
-                    window.location.href = urlDestino;
-                }
-            }, 80); 
-        }
-        //IR A CRUCIGRAMA FÁCIL TEMATICO PANTALLA DE CARGA
-        function iniciarCargaYRedireccion10(urlDestino) {
-            const pantalla = document.getElementById('pantallaCarga10');
-            const barra = document.getElementById('barraProgreso10');
-            const texto = document.getElementById('porcentaje10');
-            pantalla.classList.remove('ocultar');
-            let progreso = 0;
-            const intervalo = setInterval(() => {
-                progreso++;
-                barra.style.width = progreso + '%';
-                texto.textContent = progreso + '%';
-                if (progreso >= 100) {
-                    clearInterval(intervalo);
-                    window.location.href = urlDestino;
-                }
-            }, 80); 
-        }
-        //IR A CRUCIGRAMA MEDIO TEMATICO PANTALLA DE CARGA
-        function iniciarCargaYRedireccion11(urlDestino) {
-            const pantalla = document.getElementById('pantallaCarga11');
-            const barra = document.getElementById('barraProgreso11');
-            const texto = document.getElementById('porcentaje11');
-            pantalla.classList.remove('ocultar');
-            let progreso = 0;
-            const intervalo = setInterval(() => {
-                progreso++;
-                barra.style.width = progreso + '%';
-                texto.textContent = progreso + '%';
-                if (progreso >= 100) {
-                    clearInterval(intervalo);
-                    window.location.href = urlDestino;
-                }
-            }, 80); 
-        }
-        //IR A CRUCIGRAMA DIFICIL TEMATICO PANTALLA DE CARGA
-        function iniciarCargaYRedireccion12(urlDestino) {
-            const pantalla = document.getElementById('pantallaCarga12');
-            const barra = document.getElementById('barraProgreso12');
-            const texto = document.getElementById('porcentaje12');
-            pantalla.classList.remove('ocultar');
-            let progreso = 0;
-            const intervalo = setInterval(() => {
-                progreso++;
-                barra.style.width = progreso + '%';
-                texto.textContent = progreso + '%';
-                if (progreso >= 100) {
-                    clearInterval(intervalo);
-                    window.location.href = urlDestino;
-                }
-            }, 80); 
-        }
-        //categoria imagenes
-        document.getElementById('ci').addEventListener('click', function () {
-            const actual = document.getElementById('dificultad_ci');
-            const estabaOculto = actual.classList.contains('ocultar');
-            document.querySelectorAll('.menu_dificultad').forEach(menu => menu.classList.add('ocultar'));
-            actual.classList.toggle('ocultar', !estabaOculto);
+    /* --- LÓGICA DE MENÚS DESPLEGABLES --- */
+    function toggleMenu(idMenu) {
+        // Cierra todos primero
+        document.querySelectorAll('.menu_dificultad').forEach(menu => {
+            if (menu.id !== idMenu) menu.classList.add('ocultar');
         });
-            document.getElementById('btnFacil1').addEventListener('click', function() {
-            iniciarCargaYRedireccion('ciFacil.html');
-        });
-        document.getElementById('btnIntermedio1').addEventListener('click', function() {
-            iniciarCargaYRedireccion1('ciMedio.html'); 
-        });
-        document.getElementById('btnDificil1').addEventListener('click', function() {
-            iniciarCargaYRedireccion3('ciDificil.html'); 
-        });
-        //criptico
-        document.getElementById('cc').addEventListener('click', function () {
-            const actual = document.getElementById('dificultad_cc');
-            const estabaOculto = actual.classList.contains('ocultar');
-            document.querySelectorAll('.menu_dificultad').forEach(menu => menu.classList.add('ocultar'));
-            actual.classList.toggle('ocultar', !estabaOculto);
-        });
-        document.getElementById('btnFacil2').addEventListener('click', function() {
-            iniciarCargaYRedireccion4('ccFacil.html');  
-        });
-        document.getElementById('btnIntermedio2').addEventListener('click', function() {
-            iniciarCargaYRedireccion5('ccMedio.html'); 
-        });
-        document.getElementById('btnDificil2').addEventListener('click', function() {
-            iniciarCargaYRedireccion6('ccDificil.html'); 
-        });
-        // matematico
-        document.getElementById('cm').addEventListener('click', function () {
-            const actual = document.getElementById('dificultad_cm');
-            const estabaOculto = actual.classList.contains('ocultar');
-            document.querySelectorAll('.menu_dificultad').forEach(menu => menu.classList.add('ocultar'));
-            actual.classList.toggle('ocultar', !estabaOculto);
-        });
-        document.getElementById('btnFacil3').addEventListener('click', function() {
-            iniciarCargaYRedireccion7('cmFacil.html'); 
-        });
-        document.getElementById('btnIntermedio3').addEventListener('click', function() {
-            iniciarCargaYRedireccion8('cmMedio.html'); 
-        });
-        document.getElementById('btnDificil3').addEventListener('click', function() {
-            iniciarCargaYRedireccion9('cmDificil.html');  
-        });
-        //tematico
-        document.getElementById('ct').addEventListener('click', function () {
-            const actual = document.getElementById('dificultad_ct');
-            const estabaOculto = actual.classList.contains('ocultar');
-            document.querySelectorAll('.menu_dificultad').forEach(menu => menu.classList.add('ocultar'));
-            actual.classList.toggle('ocultar', !estabaOculto);
-        });
-        document.getElementById('btnFacil4').addEventListener('click', function() {
-            iniciarCargaYRedireccion10('ctFacil.html'); 
-        });
-        document.getElementById('btnIntermedio4').addEventListener('click', function() {
-            iniciarCargaYRedireccion11('ctMedio.html'); 
-        });
-        document.getElementById('btnDificil4').addEventListener('click', function() {
-            iniciarCargaYRedireccion12('ctDificil.html');  
-        });
-        document.addEventListener('DOMContentLoaded', function () {
-            document.getElementById('btnVolver').addEventListener('click', function() {
-                window.location.href = 'index.html';
-            })
-        });
-    </script>
+        // Alterna el seleccionado
+        document.getElementById(idMenu).classList.toggle('ocultar');
+    }
+
+    document.getElementById('ci').addEventListener('click', () => toggleMenu('dificultad_ci'));
+    document.getElementById('cc').addEventListener('click', () => toggleMenu('dificultad_cc'));
+    document.getElementById('cm').addEventListener('click', () => toggleMenu('dificultad_cm'));
+    document.getElementById('ct').addEventListener('click', () => toggleMenu('dificultad_ct'));
+
+    /* --- LÓGICA DE CARGA UNIFICADA --- */
+    // Esta función maneja TODAS las redirecciones
+    function cargarNivel(idNivel, idPantallaCarga = 'pantallaCarga') {
+        const pantalla = document.getElementById(idPantallaCarga);
+        // Si la pantalla de carga específica no existe, usa la genérica
+        const pantallaFinal = pantalla || document.getElementById('pantallaCarga');
+        
+        pantallaFinal.classList.remove('ocultar');
+        
+        // Buscar la barra dentro de esa pantalla
+        const barra = pantallaFinal.querySelector('.barra-interna');
+        const texto = pantallaFinal.querySelector('p[id^="porcentaje"]');
+        
+        let progreso = 0;
+        const intervalo = setInterval(() => {
+            progreso += 2; // Un poco más rápido para no aburrir
+            if(barra) barra.style.width = progreso + '%';
+            if(texto) texto.textContent = progreso + '%';
+            
+            if (progreso >= 100) {
+                clearInterval(intervalo);
+                // AQUÍ ESTÁ LA CLAVE: Redirige a juego.html con el ID
+                window.location.href = `juego.html?nivel=${idNivel}`; 
+            }
+        }, 30); 
+    }
+
+    /* --- ASIGNACIÓN DE BOTONES A NIVELES --- */
+    // Imágenes (ci)
+    document.getElementById('btnFacil1').onclick = () => cargarNivel('ci_facil', 'pantallaCarga');
+    document.getElementById('btnIntermedio1').onclick = () => cargarNivel('ci_medio', 'pantallaCarga1');
+    document.getElementById('btnDificil1').onclick = () => cargarNivel('ci_dificil', 'pantallaCarga3');
+
+    // Críptico (cc)
+    document.getElementById('btnFacil2').onclick = () => cargarNivel('cc_facil', 'pantallaCarga4');
+    document.getElementById('btnIntermedio2').onclick = () => cargarNivel('cc_medio', 'pantallaCarga5');
+    document.getElementById('btnDificil2').onclick = () => cargarNivel('cc_dificil', 'pantallaCarga6');
+
+    // Matemático (cm)
+    document.getElementById('btnFacil3').onclick = () => cargarNivel('cm_facil', 'pantallaCarga7');
+    document.getElementById('btnIntermedio3').onclick = () => cargarNivel('cm_medio', 'pantallaCarga8');
+    document.getElementById('btnDificil3').onclick = () => cargarNivel('cm_dificil', 'pantallaCarga9');
+
+    // Temático (ct)
+    document.getElementById('btnFacil4').onclick = () => cargarNivel('ct_facil', 'pantallaCarga10');
+    document.getElementById('btnIntermedio4').onclick = () => cargarNivel('ct_medio', 'pantallaCarga11');
+    document.getElementById('btnDificil4').onclick = () => cargarNivel('ct_dificil', 'pantallaCarga12');
+
+    // Botón Volver
+    document.getElementById('btnVolver').onclick = () => window.location.href = 'index.html';
+</script>
 </body>
 </html>
