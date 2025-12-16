@@ -518,9 +518,11 @@ function verificar() {
                     input.classList.add('error');
                     setTimeout(() => input.classList.remove('error'), 2000);
                     errores++;
-                } else {
-                    input.classList.add('correcto');
-                }
+                else {
+                    clearInterval(estado.timer);
+                     // Cambia el mensaje para que tenga sentido con cuenta regresiva
+                    alert(`¡VICTORIA! Nivel Completado.\nTe sobraron: ${document.getElementById('cronometro').innerText.replace(' ', '')}`); // El replace es por si el icono se copia como texto
+}
             }
         }
     }
@@ -558,7 +560,13 @@ function usarPista() {
         azar.input.value = azar.letra;
         azar.input.classList.add('pista-usada');
         estado.pistas--;
-        document.getElementById('btn-pista').innerText = `Pista (${estado.pistas})`;
+        // --- CÓDIGO NUEVO: PENALIZACIÓN ---
+        estado.segundos -= 30; // Quita 30 segundos
+        if(estado.segundos < 0) estado.segundos = 0; // Evita negativos
+        actualizarRelojVisual(); // Actualiza el reloj YA, no esperes al siguiente segundo
+        // ----------------------------------
+
+        document.getElementById('btn-pista').innerHTML = `<i class="fas fa-lightbulb"></i> Pista (${estado.pistas})`;
     }
 }
 
