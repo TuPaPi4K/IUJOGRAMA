@@ -124,6 +124,7 @@
             <thead>
                 <tr>
                     <th>#</th>
+                    <th>Jugador</th>
                     <th>Nivel</th>
                     <th>Tiempo</th>
                     <th>Fecha</th>
@@ -139,33 +140,63 @@
     </div>
 
     <script type="module">
-        import { db, collection, getDocs, query, orderBy, limit } from './firebase.js';
+        // 1. Importamos onSnapshot en lugar de getDocs (aunque dejé getDocs por si acaso)
+        import { db, collection, onSnapshot, query, orderBy, limit } from './firebase.js';
 
         document.addEventListener('DOMContentLoaded', () => {
-            cargarRanking();
+            iniciarRankingEnVivo();
         });
 
-        async function cargarRanking() {
+        function iniciarRankingEnVivo() {
             const cuerpo = document.getElementById('tabla-cuerpo');
-            cuerpo.innerHTML = '<tr><td colspan="4">Cargando datos mundiales...</td></tr>';
+            cuerpo.innerHTML = '<tr><td colspan="4">Conectando señal en vivo... 🔴</td></tr>';
 
-            if (querySnapshot.empty) {
-                cuerpo.innerHTML = '<tr><td colspan="4">¡Sé el primero en aparecer aquí! Juega una partida.</td></tr>';
+            // Creamos la consulta (Top 10 mejores tiempos)
+            const q = query(collection(db, "ranking"), orderBy("tiempo", "asc"), limit(10));
+
+            // ESTA ES LA MAGIA: onSnapshot se queda escuchando cambios
+            onSnapshot(q, (snapshot) => {
+            cuerpo.innerHTML = ''; 
+            
+            if (snapshot.empty) {
+                cuerpo.innerHTML = '<tr><td colspan="5">Aún no hay récords. ¡Sé el primero!</td></tr>';
                 return;
             }
 
-            try {
-                const q = query(collection(db, "ranking"), orderBy("tiempo", "asc"), limit(10));
-                const querySnapshot = await getDocs(q);
+            let posicion = 1; // Contador para el número #
 
-                cuerpo.innerHTML = '';
-                querySnapshot.forEach((doc) => {
-                    const fila = doc.data();
-                    cuerpo.innerHTML += `<tr><td>?</td><td>${fila.nivel}</td><td>${fila.tiempo}</td><td>${fila.fecha}</td></tr>`;
-                });
-            } catch (e) {
-                cuerpo.innerHTML = '<tr><td colspan="4">Error cargando ranking.</td></tr>';
-            }
+            snapshot.forEach((doc) => {
+                const fila = doc.data();
+                
+                // Lógica de Medallas
+                let medalla = posicion;
+                if (posicion === 1) medalla = '🥇';
+                if (posicion === 2) medalla = '🥈';
+                if (posicion === 3) medalla = '🥉';
+
+                // Si es un récord viejo sin nombre, ponemos "Anónimo"
+                const nombreMostrar = fila.nombre ? fila.nombre : "Anónimo";
+
+                cuerpo.innerHTML += `
+                    <tr>
+                        <td><strong>${medalla}</strong></td>
+                        <td style="color: #d35400; font-weight:bold;">${nombreMostrar}</td>
+                        <td>${fila.nivel}</td>
+                        <td class="mejor-tiempo">${fila.tiempo}</td>
+                        <td>${fila.fecha}</td>
+                    </tr>
+                `;
+                posicion++; // Aumentamos el contador
+            });
+
+        }, (error) => {
+            console.error("Error:", error);
+        });
+
+            }, (error) => {
+                console.error("Error recibiendo datos:", error);
+                cuerpo.innerHTML = '<tr><td colspan="4" style="color:red">Conexión perdida.</td></tr>';
+            });
         }
     </script>
 </body>

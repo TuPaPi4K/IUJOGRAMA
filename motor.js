@@ -494,8 +494,15 @@ function mostrarModal(victoria, mensajeTexto) {
     if (victoria) {
         titulo.innerHTML = '<i class="fas fa-star"></i> ¡FELICIDADES!';
 
+        // --- CAMBIO: PREGUNTAR NOMBRE ---
+        let nombre = prompt("🏆 ¡Nuevo Récord! \nEscribe tu nombre o apodo para el Ranking:");
+        if (!nombre || nombre.trim() === "") nombre = "Anónimo"; 
+        // -------------------------------
+
         const tiempoFinal = document.getElementById('timer').innerText;
-        guardarPuntuacion(estado.nivelActual.titulo, tiempoFinal);
+        
+        // Pasamos el nombre a la función de guardar
+        guardarPuntuacion(estado.nivelActual.titulo, tiempoFinal, nombre);
 
         acciones.innerHTML = `
             <button class="btn-modal" onclick="window.location.href='ranking.html'">
@@ -577,15 +584,16 @@ function actualizarRelojVisual() {
 }
 
 /* --- FUNCIÓN GUARDAR RANKING --- */
-async function guardarPuntuacion(nivelNombre, tiempoTexto) {
+async function guardarPuntuacion(nivelNombre, tiempoTexto, nombreJugador) {
     try {
         await addDoc(collection(db, "ranking"), {
             nivel: nivelNombre,
             tiempo: tiempoTexto,
+            nombre: nombreJugador, // <--- GUARDAMOS EL NOMBRE AQUÍ
             fecha: new Date().toLocaleDateString(),
             timestamp: Date.now()
         });
-        console.log("¡Guardado en la nube!");
+        console.log("¡Guardado con nombre!");
     } catch (e) {
         console.error("Error al subir récord: ", e);
         alert("Error de conexión. No se guardó el récord.");
