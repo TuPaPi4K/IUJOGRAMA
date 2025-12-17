@@ -6,35 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crucigramas</title>
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
-    <h1>Crucigrama</h1>
+    <h1>IUJOGRAMA</h1>
     
     <div class="menu">
-        <button id="start-btn" class="botones_menu1">Jugar</button>
+        <button id="start-btn" class="botones_menu1"><i class="fas fa-play"></i> Jugar</button>
         
-        <button id="ranking-btn" class="botones_menu2">Ranking</button>
+        <button id="ranking-btn" class="botones_menu2"><i class="fas fa-trophy"></i> Ranking</button>
         
-        <button id="credits-btn" class="botones_menu2">Créditos</button>
+        <button id="credits-btn" class="botones_menu2"><i class="fas fa-info-circle"></i> Créditos</button>
     </div>
 
     <script>
-        // 1. Botón JUGAR (start-btn) -> Va a categoria.html
-        document.getElementById('start-btn').addEventListener('click', function () {
-            window.location.href = 'categoria.html'; //
-        });
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Botón JUGAR
+            const btnJugar = document.getElementById('start-btn');
+            if(btnJugar) {
+                btnJugar.addEventListener('click', function () {
+                    window.location.href = 'categoria.html';
+                });
+            }
 
-        // 2. Botón RANKING (ranking-btn) -> Pon aquí tu lógica o alerta
-        ddocument.getElementById('ranking-btn').addEventListener('click', function () {
-        window.location.href = 'ranking.html'; // <--- AHORA SÍ FUNCIONA
-    });
+            // 2. Botón RANKING (¡Aquí estaba el problema!)
+            const btnRanking = document.getElementById('ranking-btn');
+            if(btnRanking) {
+                btnRanking.addEventListener('click', function () {
+                    console.log("Yendo al ranking..."); // Para depurar
+                    window.location.href = 'ranking.html'; 
+                });
+            }
 
-        // 3. Botón CRÉDITOS (credits-btn) -> Va a creditos.html
-        document.getElementById('credits-btn').addEventListener('click', function () {
-            window.location.href = 'creditos.html'; //
+            // 3. Botón CRÉDITOS
+            const btnCreditos = document.getElementById('credits-btn');
+            if(btnCreditos) {
+                btnCreditos.addEventListener('click', function () {
+                    window.location.href = 'creditos.html';
+                });
+            }
         });
     </script>
 </body>
-
 </html>

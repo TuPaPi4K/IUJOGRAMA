@@ -14,6 +14,10 @@
             align-items: center;
             min-height: 100vh;
             padding: 20px;
+            /* Aseguramos que el fondo sea el mismo que el index */
+            background-image: url('img/fondo3.jpeg'); 
+            background-size: cover;
+            background-attachment: fixed;
         }
 
         .contenedor-ranking {
@@ -23,36 +27,40 @@
             padding: 20px;
             width: 90%;
             max-width: 800px;
-            box-shadow: 10px 10px 0 rgba(0,0,0,0.3);
+            box-shadow: 10px 10px 0 rgba(0,0,0,0.5);
             margin-top: 20px;
         }
 
         h1 {
-            color: #b0302a;
-            text-shadow: 2px 2px 0 #fff;
+            color: #f1c40f; /* Dorado */
+            text-shadow: 3px 3px 0 #5c3d2e; /* Sombra marrón */
             margin-bottom: 20px;
             text-align: center;
-            font-family: 'Comic Sans MS', cursive;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            font-size: 3rem;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
             font-family: 'Verdana', sans-serif;
+            margin-bottom: 20px;
         }
 
         th, td {
             padding: 12px;
-            text-align: left;
+            text-align: center; /* Centrado para que se vea mejor */
             border-bottom: 2px solid #5c3d2e;
             color: #5c3d2e;
+            font-weight: bold;
         }
 
         th {
-            background-color: #b0302a;
+            background-color: #d35400; /* Naranja oscuro para encabezado */
             color: white;
             font-family: 'Comic Sans MS', cursive;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            border-radius: 5px 5px 0 0;
         }
 
         tr:nth-child(even) {
@@ -64,31 +72,43 @@
         }
 
         .mejor-tiempo {
-            color: #d35400;
+            color: #c0392b;
             font-weight: bold;
+            font-size: 1.1rem;
         }
 
-        .btn-borrar {
-            background-color: #c0392b;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 5px;
+        /* BOTÓN VOLVER (Naranja) */
+        .btn-volver {
+            background: linear-gradient(180deg, #f1c40f, #e67e22); /* Naranja degradado */
+            color: #fff;
+            border: 2px solid #5c3d2e;
+            padding: 10px 30px;
+            border-radius: 10px;
             cursor: pointer;
-            margin-top: 15px;
-            font-family: inherit;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 0 #333;
+            box-shadow: 4px 4px 0 #5c3d2e;
+            transition: transform 0.1s;
+            display: block;
+            margin: 0 auto; /* Centrado */
+        }
+
+        .btn-volver:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(180deg, #f39c12, #d35400);
+        }
+
+        .btn-volver:active {
+            transform: translateY(2px);
+            box-shadow: 2px 2px 0 #5c3d2e;
         }
         
-        .acciones-ranking {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
     </style>
 </head>
 <body>
 
-    <h1><i class="fas fa-crown"></i> Tabla de Campeones</h1>
+    <h1><i class="fas fa-crown"></i> Salón de la Fama</h1>
 
     <div class="contenedor-ranking">
         <table>
@@ -104,63 +124,35 @@
                 </tbody>
         </table>
 
-        <div class="acciones-ranking">
-            <button class="btn-borrar" onclick="borrarHistorial()">
-                <i class="fas fa-trash"></i> Borrar Todo
-            </button>
-            <button class="botones_menu1" onclick="window.location.href='index.html'" style="padding: 10px 20px; font-size: 1rem;">
-                Volver al Menú
-            </button>
-        </div>
+        <button class="btn-volver" onclick="window.location.href='index.html'">
+            <i class="fas fa-home"></i> Volver al Menú
+        </button>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            cargarRanking();
-        });
+    <script type="module">
+    import { db, collection, getDocs, query, orderBy, limit } from './firebase.js';
 
-        function cargarRanking() {
-            const cuerpo = document.getElementById('tabla-cuerpo');
-            let datos = JSON.parse(localStorage.getItem('iujograma_ranking')) || [];
+    document.addEventListener('DOMContentLoaded', () => {
+        cargarRanking();
+    });
 
-            // Ordenar por tiempo (truco simple: comparar strings funciona bien para "00:00" hasta "99:59")
-            // Si quieres ser muy preciso, deberíamos haber guardado segundos, pero esto sirve por ahora.
-            datos.sort((a, b) => a.tiempo.localeCompare(b.tiempo));
-
-            // Mostrar solo los mejores 10
-            datos = datos.slice(0, 10);
-
+    async function cargarRanking() {
+        const cuerpo = document.getElementById('tabla-cuerpo');
+        cuerpo.innerHTML = '<tr><td colspan="4">Cargando datos mundiales...</td></tr>';
+        
+        try {
+            const q = query(collection(db, "ranking"), orderBy("tiempo", "asc"), limit(10));
+            const querySnapshot = await getDocs(q);
+            
             cuerpo.innerHTML = '';
-
-            if (datos.length === 0) {
-                cuerpo.innerHTML = '<tr><td colspan="4" style="text-align:center">Aún no hay registros. ¡Sé el primero!</td></tr>';
-                return;
-            }
-
-            datos.forEach((fila, index) => {
-                const tr = document.createElement('tr');
-                // Icono de medalla para los top 3
-                let medalla = index + 1;
-                if(index === 0) medalla = '🥇';
-                if(index === 1) medalla = '🥈';
-                if(index === 2) medalla = '🥉';
-
-                tr.innerHTML = `
-                    <td>${medalla}</td>
-                    <td>${fila.nivel}</td>
-                    <td class="mejor-tiempo">${fila.tiempo}</td>
-                    <td>${fila.fecha}</td>
-                `;
-                cuerpo.appendChild(tr);
+            querySnapshot.forEach((doc) => {
+                const fila = doc.data();
+                cuerpo.innerHTML += `<tr><td>?</td><td>${fila.nivel}</td><td>${fila.tiempo}</td><td>${fila.fecha}</td></tr>`;
             });
+        } catch (e) {
+            cuerpo.innerHTML = '<tr><td colspan="4">Error cargando ranking.</td></tr>';
         }
-
-        function borrarHistorial() {
-            if(confirm("¿Seguro que quieres borrar todos los récords?")) {
-                localStorage.removeItem('iujograma_ranking');
-                cargarRanking();
-            }
-        }
-    </script>
+    }
+</script>
 </body>
 </html>

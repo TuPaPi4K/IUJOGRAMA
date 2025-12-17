@@ -410,8 +410,8 @@ function cargarNivel(id) {
 
 function manejarInput(e, f, c) {
     const input = e.target;
-    
-    if(estado.nivelActual.tipo === 'matematico') {
+
+    if (estado.nivelActual.tipo === 'matematico') {
         input.value = input.value.replace(/[^0-9+\-*/]/g, '');
     } else {
         input.value = input.value.toUpperCase().replace(/[^A-ZÑÁÉÍÓÚ]/g, '');
@@ -496,7 +496,7 @@ function mostrarModal(victoria, mensajeTexto) {
         titulo.innerHTML = '<i class="fas fa-star"></i> ¡FELICIDADES!';
 
         const tiempoFinal = document.getElementById('timer').innerText;
-    guardarPuntuacion(estado.nivelActual.titulo, tiempoFinal);
+        guardarPuntuacion(estado.nivelActual.titulo, tiempoFinal);
 
         acciones.innerHTML = `
             <button class="btn-modal" onclick="window.location.href='ranking.html'">
@@ -518,7 +518,7 @@ function mostrarModal(victoria, mensajeTexto) {
 }
 
 function usarPista() {
-    if(estado.pistas <= 0) return;
+    if (estado.pistas <= 0) return;
     if (estado.pistas <= 0) return alert("Sin pistas");
 
     let opts = [];
@@ -550,11 +550,11 @@ function usarPista() {
         btnPista.innerHTML = `<i class="fas fa-lightbulb"></i> Pista (${estado.pistas}) +30s`;
 
         // Si se acaban, lo bloqueamos visualmente
-        if(estado.pistas === 0) {
+        if (estado.pistas === 0) {
             btnPista.disabled = true;
             btnPista.innerHTML = `<i class="fas fa-lightbulb"></i> Sin pistas`;
         }
-        
+
         // Importante: Al usar pista se llena una casilla, hay que revisar el botón verificar
         revisarTablero();
     }
@@ -578,20 +578,17 @@ function actualizarRelojVisual() {
 }
 
 /* --- FUNCIÓN GUARDAR RANKING --- */
-function guardarPuntuacion(nivelNombre, tiempoTexto) {
-    // 1. Obtener datos previos
-    let ranking = JSON.parse(localStorage.getItem('iujograma_ranking')) || [];
-    
-    // 2. Agregar nueva partida
-    ranking.push({
-        nivel: nivelNombre,
-        tiempo: tiempoTexto,
-        fecha: new Date().toLocaleDateString()
-    });
-
-    // 3. (Opcional) Ordenar por tiempo es complejo porque son strings "00:00", 
-    // así que guardamos todo y lo ordenamos al mostrarlo.
-    
-    // 4. Guardar en memoria
-    localStorage.setItem('iujograma_ranking', JSON.stringify(ranking));
+async function guardarPuntuacion(nivelNombre, tiempoTexto) {
+    try {
+        await addDoc(collection(db, "ranking"), {
+            nivel: nivelNombre,
+            tiempo: tiempoTexto,
+            fecha: new Date().toLocaleDateString(),
+            timestamp: Date.now()
+        });
+        console.log("¡Guardado en la nube!");
+    } catch (e) {
+        console.error("Error al subir récord: ", e);
+        alert("Error de conexión. No se guardó el récord.");
+    }
 }

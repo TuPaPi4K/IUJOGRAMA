@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,34 +8,36 @@
     <link id="estilo-nivel" rel="stylesheet" href="crucigrama1.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+
 <body>
-    
+
     <header class="encabezado">
         <h2 id="titulo-nivel" class="titulo">Cargando...</h2>
-        <div style="position: absolute; top: 20px; right: 20px; background: white; padding: 5px 10px; border-radius: 8px; border: 2px solid #5c3d2e; font-weight: bold; color: #b0302a; z-index: 100;">
+        <div
+            style="position: absolute; top: 20px; right: 20px; background: white; padding: 5px 10px; border-radius: 8px; border: 2px solid #5c3d2e; font-weight: bold; color: #b0302a; z-index: 100;">
             <i class="fas fa-clock"></i> <span id="timer">00:00</span>
         </div>
     </header>
 
     <div class="contenido-juego">
-        
+
         <section class="pistas" id="contenedor-pistas">
-            </section>
+        </section>
 
         <section class="tablero-wrap">
             <div id="tablero-container">
-                </div>
+            </div>
 
             <div class="acciones">
-    <button id="btn-verificar" class="btn btn-verificar" disabled>Verificar</button>
-    
-    <button id="btn-pista" class="btn btn-pista">
-        <i class="fas fa-lightbulb"></i> Pista
-    </button>
-</div>
-            
+                <button id="btn-verificar" class="btn btn-verificar" disabled>Verificar</button>
+
+                <button id="btn-pista" class="btn btn-pista">
+                    <i class="fas fa-lightbulb"></i> Pista
+                </button>
+            </div>
+
             <div id="mensaje" class="mensaje"></div>
-            
+
             <span class="btn-volver" id="btn-atras" title="Salir al Menú"></span>
         </section>
 
@@ -49,6 +52,7 @@
 
     </div>
 
-    <script src="motor.js"></script> 
+    <script src="motor.js"></script>
 </body>
+
 </html>
