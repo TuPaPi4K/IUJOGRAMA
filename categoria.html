@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,13 @@
     <link rel="stylesheet" href="categoria.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+
 <body>
     <div class="bg"></div>
     <div class="cartel">
         <span class="texto-cartel">CATEGORÍAS</span>
         <a href="instrucciones.html" id="btnAyuda" data-tooltip="¿Cómo jugar?" aria-label="Ayuda e instrucciones">
-             <i class="fas fa-question"></i>
+            <i class="fas fa-question"></i>
         </a>
 
     </div>
@@ -21,26 +23,34 @@
             <button type="button" id="ci" class="btn-cat1"><i class="fas fa-image"></i> CRUCIGRAMA CON IMÁGENES</button>
             <section id="dificultad_ci" class="menu_dificultad ocultar">
                 <button type="button" id="btnFacil1" class="botones_dificultad">FÁCIL</button>
-                <button type="button" id="btnIntermedio1" class="botones_dificultad" >MEDIO</button>
+                <button type="button" id="btnIntermedio1" class="botones_dificultad">MEDIO</button>
                 <button type="button" id="btnDificil1" class="botones_dificultad">DIFÍCIL</button>
             </section>
-            <button type="button" id="cc" class="btn-cat2"><i class="fas fa-puzzle-piece"></i> CRUCIGRAMA CRÍPTICO</button>
+            <button type="button" id="cc" class="btn-cat2"><i class="fas fa-puzzle-piece"></i> CRUCIGRAMA
+                CRÍPTICO</button>
             <section id="dificultad_cc" class="menu_dificultad ocultar">
                 <button type="button" id="btnFacil2" class="botones_dificultad">FÁCIL</button>
                 <button type="button" id="btnIntermedio2" class="botones_dificultad">MEDIO</button>
                 <button type="button" id="btnDificil2" class="botones_dificultad">DIFÍCIL</button>
             </section>
-            <button type="button" id="cm" class="btn-cat3"><i class="fas fa-calculator"></i> CRUCIGRAMA MATEMÁTICO</button>
+            <button type="button" id="cm" class="btn-cat3"><i class="fas fa-calculator"></i> CRUCIGRAMA
+                MATEMÁTICO</button>
             <section id="dificultad_cm" class="menu_dificultad ocultar">
-                <button type="button" id="btnFacil3" class="botones_dificultad" data-tooltip="---≪ Matriz 10x10 ≫--- Las imágenes son sencillas y fáciles de comprender a primera vista.">FÁCIL</button>
-                <button type="button" id="btnIntermedio3" class="botones_dificultad" data-tooltip="---≪ Matriz 20x20 ≫--- Para jugadores intermedios, crucigramas con vocabulario variado y retos moderados.">MEDIO</button>
-                <button type="button" id="btnDificil3" class="botones_dificultad" data-tooltip="---≪ Matriz 40X40 ≫---Nivel avanzado, crucigramas complejos con términos especializados y mayor desafío.">DIFÍCIL</button>
+                <button type="button" id="btnFacil3" class="botones_dificultad"
+                    data-tooltip="---≪ Matriz 10x10 ≫--- Las imágenes son sencillas y fáciles de comprender a primera vista.">FÁCIL</button>
+                <button type="button" id="btnIntermedio3" class="botones_dificultad"
+                    data-tooltip="---≪ Matriz 20x20 ≫--- Para jugadores intermedios, crucigramas con vocabulario variado y retos moderados.">MEDIO</button>
+                <button type="button" id="btnDificil3" class="botones_dificultad"
+                    data-tooltip="---≪ Matriz 40X40 ≫---Nivel avanzado, crucigramas complejos con términos especializados y mayor desafío.">DIFÍCIL</button>
             </section>
             <button type="button" id="ct" class="btn-cat4"><i class="fas fa-book-open"></i> CRUCIGRAMA TEMÁTICO</button>
             <section id="dificultad_ct" class="menu_dificultad ocultar">
-                <button type="button" id="btnFacil4" class="botones_dificultad" data-tooltip="---≪ Matriz 10x10 ≫--- Las imágenes son sencillas y fáciles de comprender a primera vista.">FÁCIL</button>
-                <button type="button" id="btnIntermedio4" class="botones_dificultad" data-tooltip="---≪ Matriz 20x20 ≫--- Para jugadores intermedios, crucigramas con vocabulario variado y retos moderados.">MEDIO</button>
-                <button type="button" id="btnDificil4" class="botones_dificultad" data-tooltip="---≪ Matriz 40X40 ≫---Nivel avanzado, crucigramas complejos con términos especializados y mayor desafío.">DIFÍCIL</button>
+                <button type="button" id="btnFacil4" class="botones_dificultad"
+                    data-tooltip="---≪ Matriz 10x10 ≫--- Las imágenes son sencillas y fáciles de comprender a primera vista.">FÁCIL</button>
+                <button type="button" id="btnIntermedio4" class="botones_dificultad"
+                    data-tooltip="---≪ Matriz 20x20 ≫--- Para jugadores intermedios, crucigramas con vocabulario variado y retos moderados.">MEDIO</button>
+                <button type="button" id="btnDificil4" class="botones_dificultad"
+                    data-tooltip="---≪ Matriz 40X40 ≫---Nivel avanzado, crucigramas complejos con términos especializados y mayor desafío.">DIFÍCIL</button>
             </section>
         </section>
         <nav class="acciones">
@@ -51,7 +61,8 @@
             <div class="caja-carga">
                 <div class="contenido-cartel">
                     <p class="mensaje-carga">
-                    <strong>¿Cómo jugar?</strong><br>Solo observa, haz click en la casilla y escribe la palabra. Las imágenes son claras y conocidas. ¡Buena suerte!
+                        <strong>¿Cómo jugar?</strong><br>Solo observa, haz click en la casilla y escribe la palabra. Las
+                        imágenes son claras y conocidas. ¡Buena suerte!
                     </p>
                     <div class="barra-externa">
                         <div class="barra-interna" id="barraProgreso"></div>
@@ -64,7 +75,8 @@
             <div class="caja-carga">
                 <div class="contenido-cartel">
                     <p class="mensaje-carga">
-                    <strong>¿Cómo jugar?</strong><br>Las imágenes no siempre son <br> lo que parecen, requieren de más análisis para llegar a la palabra correcta. <br>¡Es hora de poner tu mente a trabajar!
+                        <strong>¿Cómo jugar?</strong><br>Las imágenes no siempre son <br> lo que parecen, requieren de
+                        más análisis para llegar a la palabra correcta. <br>¡Es hora de poner tu mente a trabajar!
                     </p>
                     <div class="barra-externa">
                         <div class="barra-interna" id="barraProgreso1"></div>
@@ -77,7 +89,8 @@
             <div class="caja-carga">
                 <div class="contenido-cartel">
                     <p class="mensaje-carga">
-                    <strong>¿Cómo jugar?</strong><br>Las imágenes no son lo que parecen <br> debes analizar y observar cuidadosamente para llegar a la respuesta correcta <br>¡Ten paciencia!
+                        <strong>¿Cómo jugar?</strong><br>Las imágenes no son lo que parecen <br> debes analizar y
+                        observar cuidadosamente para llegar a la respuesta correcta <br>¡Ten paciencia!
                     </p>
                     <div class="barra-externa">
                         <div class="barra-interna" id="barraProgreso3"></div>
@@ -86,11 +99,12 @@
                 </div>
             </div>
         </section>
-                <section id="pantallaCarga4" class="pantalla-carga ocultar">
+        <section id="pantallaCarga4" class="pantalla-carga ocultar">
             <div class="caja-carga">
                 <div class="contenido-cartel">
                     <p class="mensaje-carga">
-                    <strong>¿Cómo jugar?</strong><br>Lee cuidadosamente las definiciones, las palabras aquí son reconocidas y nada rebuscadas ¡Diviértete!
+                        <strong>¿Cómo jugar?</strong><br>Lee cuidadosamente las definiciones, las palabras aquí son
+                        reconocidas y nada rebuscadas ¡Diviértete!
                     </p>
                     <div class="barra-externa">
                         <div class="barra-interna" id="barraProgreso4"></div>
@@ -103,7 +117,8 @@
             <div class="caja-carga">
                 <div class="contenido-cartel">
                     <p class="mensaje-carga">
-                    <strong>¿Cómo jugar?</strong><br>Analiza cada pista: el vocabulario es cotidiano pero exige precisión. Busca la opción más clara sin complicarte.
+                        <strong>¿Cómo jugar?</strong><br>Analiza cada pista: el vocabulario es cotidiano pero exige
+                        precisión. Busca la opción más clara sin complicarte.
                     </p>
                     <div class="barra-externa">
                         <div class="barra-interna" id="barraProgreso5"></div>
@@ -116,7 +131,8 @@
             <div class="caja-carga">
                 <div class="contenido-cartel">
                     <p class="mensaje-carga">
-                    <strong>¿Cómo jugar?</strong><br>Olvida lo obvio. Cada pista tiene dos caras: La definición y el rompecabezas de palabras. <br>¡Pon tu mente a trabajar en este nivel!
+                        <strong>¿Cómo jugar?</strong><br>Olvida lo obvio. Cada pista tiene dos caras: La definición y el
+                        rompecabezas de palabras. <br>¡Pon tu mente a trabajar en este nivel!
                     </p>
                     <div class="barra-externa">
                         <div class="barra-interna" id="barraProgreso6"></div>
@@ -129,7 +145,8 @@
             <div class="caja-carga">
                 <div class="contenido-cartel">
                     <p class="mensaje-carga">
-                    <strong>¿Cómo jugar?</strong><br>Tendrás que resolver un crucigrama en base a conocimientos de sustracción y adición <br>¡Pon tu mente a trabajar!
+                        <strong>¿Cómo jugar?</strong><br>Tendrás que resolver un crucigrama en base a conocimientos de
+                        sustracción y adición <br>¡Pon tu mente a trabajar!
                     </p>
                     <div class="barra-externa">
                         <div class="barra-interna" id="barraProgreso7"></div>
@@ -142,7 +159,8 @@
             <div class="caja-carga">
                 <div class="contenido-cartel">
                     <p class="mensaje-carga">
-                    <strong>¿Cómo jugar?</strong><br>Requiere conocimientos en adición y sustración con un poco más de análisis <br> ¡Buena suerte!
+                        <strong>¿Cómo jugar?</strong><br>Requiere conocimientos en adición y sustración con un poco más
+                        de análisis <br> ¡Buena suerte!
                     </p>
                     <div class="barra-externa">
                         <div class="barra-interna" id="barraProgreso8"></div>
@@ -155,7 +173,8 @@
             <div class="caja-carga">
                 <div class="contenido-cartel">
                     <p class="mensaje-carga">
-                    <strong>¿Cómo jugar?</strong><br>Último nivel para probar tus conocimientos en operaciones básicas matemáticas, este nivel requiere más análisis <br> ¡Buena suerte!
+                        <strong>¿Cómo jugar?</strong><br>Último nivel para probar tus conocimientos en operaciones
+                        básicas matemáticas, este nivel requiere más análisis <br> ¡Buena suerte!
                     </p>
                     <div class="barra-externa">
                         <div class="barra-interna" id="barraProgreso9"></div>
@@ -168,7 +187,8 @@
             <div class="caja-carga">
                 <div class="contenido-cartel">
                     <p class="mensaje-carga">
-                    <strong>¿Cómo jugar?</strong><br>Un crucigrama temático reúne palabras de un mismo tema, en este nivel: Útiles Escolares. Las pistas son claras ¡Diviértete!
+                        <strong>¿Cómo jugar?</strong><br>Un crucigrama temático reúne palabras de un mismo tema, en este
+                        nivel: Útiles Escolares. Las pistas son claras ¡Diviértete!
                     </p>
                     <div class="barra-externa">
                         <div class="barra-interna" id="barraProgreso10"></div>
@@ -181,7 +201,8 @@
             <div class="caja-carga">
                 <div class="contenido-cartel">
                     <p class="mensaje-carga">
-                    <strong>¿Cómo jugar?</strong><br>Un crucigrama temático reúne palabras de un mismo tema, en este nivel: Animales. Las pistas a veces pueden ser confusas ¡Diviértete!
+                        <strong>¿Cómo jugar?</strong><br>Un crucigrama temático reúne palabras de un mismo tema, en este
+                        nivel: Animales. Las pistas a veces pueden ser confusas ¡Diviértete!
                     </p>
                     <div class="barra-externa">
                         <div class="barra-interna" id="barraProgreso11"></div>
@@ -194,7 +215,9 @@
             <div class="caja-carga">
                 <div class="contenido-cartel">
                     <p class="mensaje-carga">
-                    <strong>¿Cómo jugar?</strong><br>Un crucigrama temático reúne palabras de un mismo tema, en este nivel: Informática. Piensa y analiza cada uno de los conceptos dados para dar con la palabra correcta.
+                        <strong>¿Cómo jugar?</strong><br>Un crucigrama temático reúne palabras de un mismo tema, en este
+                        nivel: Informática. Piensa y analiza cada uno de los conceptos dados para dar con la palabra
+                        correcta.
                     </p>
                     <div class="barra-externa">
                         <div class="barra-interna" id="barraProgreso12"></div>
@@ -220,29 +243,52 @@
     document.getElementById('cm').addEventListener('click', () => toggleMenu('dificultad_cm'));
     document.getElementById('ct').addEventListener('click', () => toggleMenu('dificultad_ct'));
 
-    /* --- LÓGICA DE CARGA UNIFICADA --- */
-    // Esta función maneja TODAS las redirecciones
+    /* --- LÓGICA DE CARGA UNIFICADA (Para CRUCIGRAMAS NORMALES) --- */
+    // Redirige a juego.html para que el motor.js cargue el nivel
     function cargarNivel(idNivel, idPantallaCarga = 'pantallaCarga') {
         const pantalla = document.getElementById(idPantallaCarga);
-        // Si la pantalla de carga específica no existe, usa la genérica
         const pantallaFinal = pantalla || document.getElementById('pantallaCarga');
         
         pantallaFinal.classList.remove('ocultar');
         
-        // Buscar la barra dentro de esa pantalla
         const barra = pantallaFinal.querySelector('.barra-interna');
         const texto = pantallaFinal.querySelector('p[id^="porcentaje"]');
         
         let progreso = 0;
         const intervalo = setInterval(() => {
-            progreso += 2; // Un poco más rápido para no aburrir
+            progreso += 2;
             if(barra) barra.style.width = progreso + '%';
             if(texto) texto.textContent = progreso + '%';
             
             if (progreso >= 100) {
                 clearInterval(intervalo);
-                // AQUÍ ESTÁ LA CLAVE: Redirige a juego.html con el ID
+                // REDIRECCIÓN GENÉRICA
                 window.location.href = `juego.html?nivel=${idNivel}`; 
+            }
+        }, 30); 
+    }
+    
+    /* --- LÓGICA DE CARGA DIRECTA (Solo para MATEMÁTICAS) --- */
+    // Redirige directamente al archivo HTML, saltándose juego.html
+    function cargarNivelDirecto(archivoHTML, idPantallaCarga) {
+        const pantalla = document.getElementById(idPantallaCarga);
+        const pantallaFinal = pantalla || document.getElementById('pantallaCarga');
+        
+        pantallaFinal.classList.remove('ocultar');
+        
+        const barra = pantallaFinal.querySelector('.barra-interna');
+        const texto = pantallaFinal.querySelector('p[id^="porcentaje"]');
+        
+        let progreso = 0;
+        const intervalo = setInterval(() => {
+            progreso += 2;
+            if(barra) barra.style.width = progreso + '%';
+            if(texto) texto.textContent = progreso + '%';
+            
+            if (progreso >= 100) {
+                clearInterval(intervalo);
+                // REDIRECCIÓN DIRECTA AL ARCHIVO MANUAL
+                window.location.href = archivoHTML; 
             }
         }, 30); 
     }
@@ -258,10 +304,10 @@
     document.getElementById('btnIntermedio2').onclick = () => cargarNivel('cc_medio', 'pantallaCarga5');
     document.getElementById('btnDificil2').onclick = () => cargarNivel('cc_dificil', 'pantallaCarga6');
 
-    // Matemático (cm)
-    document.getElementById('btnFacil3').onclick = () => cargarNivel('cm_facil', 'pantallaCarga7');
-    document.getElementById('btnIntermedio3').onclick = () => cargarNivel('cm_medio', 'pantallaCarga8');
-    document.getElementById('btnDificil3').onclick = () => cargarNivel('cm_dificil', 'pantallaCarga9');
+    // ** MATEMÁTICO (cm) - ¡USA CARGA DIRECTA! **
+    document.getElementById('btnFacil3').onclick = () => cargarNivelDirecto('cmFacil.html', 'pantallaCarga7');
+    document.getElementById('btnIntermedio3').onclick = () => cargarNivelDirecto('cmMedio.html', 'pantallaCarga8');
+    document.getElementById('btnDificil3').onclick = () => cargarNivelDirecto('cmDificil.html', 'pantallaCarga9');
 
     // Temático (ct)
     document.getElementById('btnFacil4').onclick = () => cargarNivel('ct_facil', 'pantallaCarga10');
@@ -272,4 +318,5 @@
     document.getElementById('btnVolver').onclick = () => window.location.href = 'index.html';
 </script>
 </body>
+
 </html>

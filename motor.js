@@ -157,49 +157,6 @@ const niveles = {
         ]
     },
 
-    // --- MATEMÁTICOS ---
-    "cm_facil": {
-        titulo: "Matemático: Fácil", css: "crucigrama7.css", tipo: "matematico", cols: 5, filas: 5,
-        estilos: {
-            "0-2": "casilla1", "0-1": "casilla2", "0-3": "casilla3", "2-0": "casilla4",
-            "1-2": "casilla5", "1-0": "casilla5", "1-4": "casilla5", "2-1": "casilla5", // Repetimos clase si es visual
-            "2-4": "casilla6", "4-4": "casilla7", "4-0": "casilla8",
-            "1-1": "bloqueada_negra", "1-3": "bloqueada_negra", "3-1": "bloqueada_negra", "3-3": "bloqueada_negra"
-        },
-        palabras: [
-            { respuesta: "5", f: 0, c: 2 }, { respuesta: "7", f: 2, c: 0 },
-            { respuesta: "2", f: 4, c: 2 }, { respuesta: "10", f: 4, c: 4 },
-            { respuesta: "5", f: 0, c: 0 }, { respuesta: "+", f: 0, c: 1 }, { respuesta: "=", f: 0, c: 3 }, { respuesta: "5", f: 0, c: 4 } // Fila completa ejemplo
-        ]
-    },
-    "cm_medio": {
-        titulo: "Matemático: Medio", css: "crucigrama8.css", tipo: "matematico", cols: 5, filas: 5,
-        estilos: {
-            "0-2": "casilla1", "0-1": "casilla2", "0-3": "casilla3", "2-0": "casilla4",
-            "1-0": "casilla5", "1-2": "casilla5", "1-4": "casilla5",
-            "2-4": "casilla6", "4-4": "casilla7",
-            "1-1": "bloqueada_negra", "1-3": "bloqueada_negra", "3-1": "bloqueada_negra", "3-3": "bloqueada_negra"
-        },
-        palabras: [
-            { respuesta: "10", f: 0, c: 0 }, { respuesta: "40", f: 0, c: 4 },
-            { respuesta: "+", f: 2, c: 1 }, { respuesta: "20", f: 2, c: 2 },
-            { respuesta: "5", f: 4, c: 0 }, { respuesta: "10", f: 4, c: 2 }
-        ]
-    },
-    "cm_dificil": {
-        titulo: "Matemático: Difícil", css: "crucigrama9.css", tipo: "matematico", cols: 5, filas: 5,
-        estilos: {
-            "0-2": "casilla1", "4-1": "casilla2", "0-3": "casilla3", "1-2": "casilla4",
-            "2-0": "casilla6", "2-4": "casilla7", "4-4": "casilla8",
-            "1-1": "bloqueada_negra", "1-3": "bloqueada_negra", "3-1": "bloqueada_negra", "3-3": "bloqueada_negra"
-        },
-        palabras: [
-            { respuesta: "60", f: 0, c: 0 }, { respuesta: "80", f: 0, c: 4 },
-            { respuesta: "/", f: 1, c: 0 }, { respuesta: "-", f: 2, c: 1 },
-            { respuesta: "2", f: 2, c: 2 }, { respuesta: "10", f: 4, c: 0 }, { respuesta: "10", f: 4, c: 2 }
-        ]
-    },
-
     // --- TEMÁTICOS ---
     "ct_facil": {
         titulo: "Temático: Útiles", css: "crucigrama10.css", tipo: "texto", cols: 10, filas: 10,
@@ -259,18 +216,21 @@ const niveles = {
             { id: 28, pista: "Subproceso ligero", respuesta: "HILO", f: 15, c: 7, dir: "H" },
             { id: 30, pista: "Núcleo SO", respuesta: "KERNEL", f: 17, c: 10, dir: "H" },
             { id: 31, pista: "Pausa temporal", respuesta: "SLEEP", f: 19, c: 13, dir: "H" },
-            { id: 2, pista: "Control acceso", respuesta: "ACL", f: 0, c: 3, dir: "V" },
-            { id: 3, pista: "Controlador", respuesta: "DRIVER", f: 0, c: 5, dir: "V" },
-            { id: 4, pista: "SO Microsoft", respuesta: "WINDOWS", f: 1, c: 10, dir: "V" },
-            { id: 7, pista: "Padre de Linux", respuesta: "UNIX", f: 2, c: 12, dir: "V" },
-            { id: 8, pista: "Núcleo CPU", respuesta: "CORE", f: 2, c: 17, dir: "V" },
-            { id: 9, pista: "Almacén datos", respuesta: "MEMORIA", f: 4, c: 8, dir: "V" },
-            { id: 11, pista: "SO Tiempo Real", respuesta: "QNX", f: 4, c: 14, dir: "V" },
-            { id: 15, pista: "Intercambio RAM", respuesta: "SWAPPING", f: 7, c: 6, dir: "V" },
-            { id: 17, pista: "Interfaz Programación", respuesta: "API", f: 8, c: 13, dir: "V" },
-            { id: 19, pista: "SO Apple", respuesta: "MACOS", f: 9, c: 17, dir: "V" },
-            { id: 20, pista: "Hilo ejecución", respuesta: "THREAD", f: 10, c: 2, dir: "V" },
+            { id: 32, pista: "Sonido de perro", respuesta: "LADRA", f: 19, c: 15, dir: "H" },
+            { id: 2, pista: "Anfibio mexicano", respuesta: "AJOLOTE", f: 0, c: 1, dir: "V" },
+            { id: 3, pista: "Arte con teselas", respuesta: "MOSAICO", f: 0, c: 6, dir: "V" },
+            { id: 4, pista: "Luces del norte", respuesta: "AURORA", f: 0, c: 10, dir: "V" },
+            { id: 5, pista: "Equidad legal", respuesta: "JUSTICIA", f: 1, c: 4, dir: "V" },
+            { id: 6, pista: "Creación estética", respuesta: "ARTE", f: 1, c: 15, dir: "V" },
+            { id: 11, pista: "Ponerse ropa", respuesta: "VESTIRSE", f: 6, c: 12, dir: "V" },
+            { id: 12, pista: "Felino manchado", respuesta: "OCELOTE", f: 6, c: 14, dir: "V" },
+            { id: 13, pista: "Ventana coloreada", respuesta: "VITRAL", f: 6, c: 18, dir: "V" },
+            { id: 15, pista: "Fuerza magnética", respuesta: "ATRACCION", f: 8, c: 6, dir: "V" },
+            { id: 16, pista: "Tormenta viento", respuesta: "HURACAN", f: 9, c: 2, dir: "V" },
+            { id: 18, pista: "Insecto religioso", respuesta: "MANTIS", f: 9, c: 16, dir: "V" },
+            { id: 20, pista: "Fiesta de brujas", respuesta: "HALLOWEEN", f: 11, c: 0, dir: "V" },
             { id: 22, pista: "Abrazo mortal", respuesta: "DEADLOCK", f: 10, c: 10, dir: "V" },
+            { id: 23, pista: "Entornos virtuales", respuesta: "VIRTUALIZACION", f: 12, c: 5, dir: "V" },
             { id: 24, pista: "Cerebro PC", respuesta: "CPU", f: 12, c: 15, dir: "V" },
             { id: 26, pista: "Sistema Archivos Red", respuesta: "NFS", f: 14, c: 5, dir: "V" },
             { id: 27, pista: "Unidad almacenamiento", respuesta: "DISCO", f: 14, c: 8, dir: "V" },
@@ -319,20 +279,23 @@ function cargarNivel(id) {
     // 1. CSS y Textos
     document.getElementById('estilo-nivel').href = data.css;
     document.getElementById('titulo-nivel').innerText = data.titulo;
-    // Actualizar texto del botón para reflejar la penalización de SUMA
     document.getElementById('btn-pista').innerHTML = `<i class="fas fa-lightbulb"></i> Pista (${estado.pistas}) +30s`;
-    document.getElementById('btn-pista').disabled = false; // Reactivar por si acaso    // 2. Grid Lógico
-
+    document.getElementById('btn-pista').disabled = false; // Reactivar por si acaso    
+    
+    // 2. Grid Lógico
     estado.grid = Array(data.filas).fill().map(() => Array(data.cols).fill(null));
     document.getElementById('btn-verificar').disabled = true;
 
     let pistasH = [];
     let pistasV = [];
 
-    if (data.tipo === 'matematico') {
-        data.palabras.forEach(p => estado.grid[p.f][p.c] = p.respuesta);
-    } else {
-        data.palabras.forEach(p => {
+    // Lógica para todos los crucigramas
+    data.palabras.forEach(p => {
+        if (data.tipo === 'matematico') {
+            // En Matemáticas, solo llenamos la celda de respuesta con el valor
+            estado.grid[p.f][p.c] = p.respuesta;
+        } else {
+            // En los otros, llenamos las celdas de las palabras
             let fila = p.f;
             let col = p.c;
             for (let i = 0; i < p.respuesta.length; i++) {
@@ -348,8 +311,8 @@ function cargarNivel(id) {
 
             if (p.dir === 'H') pistasH.push(htmlPista);
             else pistasV.push(htmlPista);
-        });
-    }
+        }
+    });
 
     const contenedorPistas = document.getElementById('contenedor-pistas');
     if (data.tipo !== 'matematico') {
@@ -359,6 +322,7 @@ function cargarNivel(id) {
             <article class="pista"><strong>Vertical:</strong>${pistasV.join('')}</article>
         `;
     } else {
+        // En matemáticas, no hay contenedor de pistas horizontal/vertical
         contenedorPistas.style.display = 'none';
     }
 
@@ -375,6 +339,7 @@ function cargarNivel(id) {
             const letra = estado.grid[f][c];
             const key = `${f}-${c}`;
 
+            // Aplicar estilos y clases del nivel
             if (data.estilos && data.estilos[key]) td.className = data.estilos[key];
 
             const input = document.createElement('input');
@@ -382,19 +347,42 @@ function cargarNivel(id) {
             input.id = `c-${f}-${c}`;
             input.dataset.f = f;
             input.dataset.c = c;
-            input.maxLength = (data.tipo === 'matematico') ? 3 : 1;
+            
+            // Lógica de longitud de input:
+            if (data.tipo === 'matematico' && data.longitudes && data.longitudes[key]) {
+                // Para matemáticas, usa la longitud específica
+                input.maxLength = data.longitudes[key]; 
+            } else {
+                // Para el resto (letras), usa 1
+                input.maxLength = 1;
+            }
 
-            if (letra || (data.tipo === 'matematico' && !td.className.includes('bloqueada'))) {
+            // Si tiene respuesta o es una casilla activa en matemáticas
+            if (letra || (data.tipo === 'matematico' && td.className.includes('activa'))) {
                 input.className = "casilla activa";
                 input.addEventListener('keyup', (e) => manejarInput(e, f, c));
                 input.addEventListener('input', () => {
-                    if (data.tipo === 'matematico') input.value = input.value.replace(/[^0-9+\-*/]/g, '');
+                    // Restricción de caracteres
+                    if (data.tipo === 'matematico') input.value = input.value.replace(/[^0-9+\-x=/]/gi, '');
                     else input.value = input.value.toUpperCase().replace(/[^A-ZÑÁÉÍÓÚ]/g, '');
                 });
+            } else if (td.className.includes('bloqueada_negra')) {
+                // Casilla negra, no se puede escribir
+                input.className = "casilla bloqueada bloqueada_negra";
+                input.disabled = true;
             } else {
+                // Casilla normal, vacía y bloqueada (para crucigramas no-matemáticos)
                 input.className = "casilla bloqueada";
                 input.disabled = true;
             }
+            
+            // Para las casillas fijas de matemáticas (ej: los signos que van rellenos)
+            if (data.tipo === 'matematico' && estado.grid[f][c] && !td.className.includes('activa')) {
+                input.value = estado.grid[f][c];
+                input.classList.add('pista-bloqueada');
+                input.setAttribute('readonly', true);
+            }
+            
             td.appendChild(input);
             tr.appendChild(td);
         }
@@ -411,7 +399,7 @@ function manejarInput(e, f, c) {
     const input = e.target;
 
     if (estado.nivelActual.tipo === 'matematico') {
-        input.value = input.value.replace(/[^0-9+\-*/]/g, '');
+        input.value = input.value.replace(/[^0-9+\-x=/]/gi, '');
     } else {
         input.value = input.value.toUpperCase().replace(/[^A-ZÑÁÉÍÓÚ]/g, '');
     }
@@ -425,7 +413,6 @@ function manejarInput(e, f, c) {
 }
 
 function revisarTablero() {
-    // Seleccionamos solo las casillas activas (las que se pueden escribir)
     const casillas = document.querySelectorAll('input.casilla.activa');
     let todasLlenas = true;
 
@@ -435,7 +422,6 @@ function revisarTablero() {
         }
     });
 
-    // Si todas están llenas, quitamos el 'disabled'
     document.getElementById('btn-verificar').disabled = !todasLlenas;
 }
 
@@ -477,7 +463,6 @@ function verificar() {
     } else {
         clearInterval(estado.timer);
         const tiempoFinal = document.getElementById('timer').innerText;
-        // MENSAJE DE VICTORIA CON TIEMPO FINAL
         mostrarModal(true, `¡Nivel Completado!<br>Tiempo total: <strong>${tiempoFinal}</strong>`);
     }
 }
@@ -494,17 +479,19 @@ function mostrarModal(victoria, mensajeTexto) {
     if (victoria) {
         titulo.innerHTML = '<i class="fas fa-star"></i> ¡FELICIDADES!';
 
-        // --- CAMBIO: PREGUNTAR NOMBRE ---
         let nombre = prompt("🏆 ¡Nuevo Récord! \nEscribe tu nombre o apodo para el Ranking:");
         if (!nombre || nombre.trim() === "") nombre = "Anónimo"; 
-        // -------------------------------
 
         const tiempoFinal = document.getElementById('timer').innerText;
         
-        // Pasamos el nombre a la función de guardar
         guardarPuntuacion(estado.nivelActual.titulo, tiempoFinal, nombre);
 
-        acciones.innerHTML = `
+        let siguienteNivel = '';
+        if (estado.nivelActual.titulo.includes("Matemático: Fácil")) siguienteNivel = 'cmMedio.html';
+        else if (estado.nivelActual.titulo.includes("Matemático: Medio")) siguienteNivel = 'cmDificil.html';
+        // Agrega más lógica de siguiente nivel para otros tipos si es necesario
+
+        let botonesAccion = `
             <button class="btn-modal" onclick="window.location.href='ranking.html'">
                 <i class="fas fa-trophy"></i> Ver Ranking
             </button>
@@ -512,6 +499,15 @@ function mostrarModal(victoria, mensajeTexto) {
                 <i class="fas fa-home"></i> Menú
             </button>
         `;
+
+        if (siguienteNivel) {
+             botonesAccion += `<button class="btn-modal" onclick="window.location.href='${siguienteNivel}'">
+                <i class="fas fa-forward"></i> Siguiente juego
+            </button>`;
+        }
+
+        acciones.innerHTML = botonesAccion;
+
     } else {
         titulo.innerHTML = '<i class="fas fa-exclamation-circle"></i> Incorrecto';
         acciones.innerHTML = `
@@ -524,7 +520,6 @@ function mostrarModal(victoria, mensajeTexto) {
 }
 
 function usarPista() {
-    if (estado.pistas <= 0) return;
     if (estado.pistas <= 0) return alert("Sin pistas");
 
     let opts = [];
@@ -532,9 +527,10 @@ function usarPista() {
     for (let f = 0; f < data.filas; f++) {
         for (let c = 0; c < data.cols; c++) {
             const resp = estado.grid[f][c];
-            if (resp) {
+            // Solo se dan pistas a las casillas que deben ser activas (se debe escribir en ellas)
+            if (resp && document.getElementById(`c-${f}-${c}`) && document.getElementById(`c-${f}-${c}`).classList.contains('activa')) {
                 const input = document.getElementById(`c-${f}-${c}`);
-                if (input && input.value.toUpperCase() !== resp.toString().toUpperCase()) {
+                if (input.value.toUpperCase() !== resp.toString().toUpperCase()) {
                     opts.push({ input, l: resp });
                 }
             }
@@ -545,24 +541,22 @@ function usarPista() {
         const azar = opts[Math.floor(Math.random() * opts.length)];
         azar.input.value = azar.l.toString().toUpperCase();
         azar.input.classList.add('pista-bloqueada');
-
+        
         estado.pistas--;
-
-        // --- PENALIZACIÓN: SUMAR TIEMPO ---
-        estado.segundos += 30;
+        estado.segundos += 30; // Penalización
 
         actualizarRelojVisual();
         const btnPista = document.getElementById('btn-pista');
         btnPista.innerHTML = `<i class="fas fa-lightbulb"></i> Pista (${estado.pistas}) +30s`;
 
-        // Si se acaban, lo bloqueamos visualmente
         if (estado.pistas === 0) {
             btnPista.disabled = true;
             btnPista.innerHTML = `<i class="fas fa-lightbulb"></i> Sin pistas`;
         }
 
-        // Importante: Al usar pista se llena una casilla, hay que revisar el botón verificar
         revisarTablero();
+    } else {
+        alert("¡Todo el tablero está correcto o lleno!");
     }
 }
 
@@ -570,10 +564,8 @@ function iniciarTimer() {
     if (estado.timer) clearInterval(estado.timer);
     actualizarRelojVisual();
     estado.timer = setInterval(() => {
-        // --- CRONÓMETRO: SUMAR TIEMPO ---
         estado.segundos++;
         actualizarRelojVisual();
-        // Ya no hay Game Over por tiempo, el límite lo pone la paciencia del jugador
     }, 1000);
 }
 
@@ -589,13 +581,13 @@ async function guardarPuntuacion(nivelNombre, tiempoTexto, nombreJugador) {
         await addDoc(collection(db, "ranking"), {
             nivel: nivelNombre,
             tiempo: tiempoTexto,
-            nombre: nombreJugador, // <--- GUARDAMOS EL NOMBRE AQUÍ
+            nombre: nombreJugador,
             fecha: new Date().toLocaleDateString(),
             timestamp: Date.now()
         });
         console.log("¡Guardado con nombre!");
     } catch (e) {
         console.error("Error al subir récord: ", e);
-        alert("Error de conexión. No se guardó el récord.");
+        // Si no se guardó, no interrumpimos el juego con un alert
     }
 }
