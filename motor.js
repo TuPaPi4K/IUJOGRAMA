@@ -1,6 +1,5 @@
-/* =========================================
-   BASE DE DATOS DE NIVELES (COMPLETA)
-   ========================================= */
+import { db, collection, addDoc } from './firebase.js';
+
 const niveles = {
     // --- IMÁGENES ---
     "ci_facil": {
